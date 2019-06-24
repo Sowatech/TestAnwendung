@@ -1,0 +1,9 @@
+﻿<ibox [collapsable]="false">
+    <div ibox-tools>
+        <div class="pull-right">
+            <button class="btn btn-primary btn-xs" (click)="createItem()" title="Neue Benutzergruppe anlegen"><i class="fa fa-plus"></i> <i class="fa fa-users"></i> {{'USER_GROUP.BUTTON.CREATE_USERGROUP' | translate:lang}}</button>
+        </div>
+    </div>
+    <ds-datasource #userGroupDatasource [src]="userGroups" [store-key]="'user-group'"></ds-datasource>
+    <swt-grid #userGroupGrid [datasource]="userGroupDatasource" [store-key]="'user-group'"></swt-grid>
+</ibox>

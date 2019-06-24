@@ -1,0 +1,95 @@
+[
+    {
+        "path": "home",
+        "text": "Startseite",
+        "textKey": "HOME",
+        "iconClass": "fa-laptop",
+        "visible": true
+    },
+    {
+        "text": "Administration",
+        "iconClass": "fa-gears",
+        "visibleForRoles": [
+            "Administrator"
+        ],
+        "items": [
+            {
+                "path": "admin/user-administration",
+                "text": "Benutzerverwaltung",
+                "iconClass": "fa-user",
+                "visibleForRoles": [
+                    "Administrator"
+                ]
+            },
+            {
+                "path": "admin/usergroup",
+                "text": "Benutzergruppen",
+                "iconClass": "fa-users",
+                "visibleForRoles": [
+                    "Administrator"
+                ]
+            },
+            {
+                "path": "client/settings",
+                "text": "Settings",
+                "iconClass": "fa-cog",
+                "visibleForRoles": [
+                    "Administrator"
+                ]
+            },
+            {
+                "path": "master-data/categories",
+                "text": "Kategorien",
+                "iconClass": "fa-folder",
+                "visibleForRoles": [
+                    "Administrator"
+                ]
+            },
+            {
+                "path": "master-data/categories2",
+                "text": "Kategorien-2",
+                "iconClass": "fa-folder",
+                "visibleForRoles": [
+                    "Administrator"
+                ]
+            }
+        ]
+    },
+    {
+        "path": "mandanten",
+        "text": "Mandanten",
+        "iconClass": "fa-institution",
+        "visibleForRoles": [
+            "SystemAdministrator"
+        ],
+        "items": [
+            {
+                "path": "mandant/:id",
+                "text": "Mandant",
+                "visible": false
+            }
+        ]
+    },
+    {
+        "path": "system/settings",
+        "text": "Settings",
+        "iconClass": "fa-cog",
+        "visibleForRoles": [
+            "SystemAdministrator"
+        ]
+    },
+    {
+        "path": "user/settings",
+        "text": "Settings",
+        "iconClass": "fa-cog",
+        "visibleForRoles": [
+            "User"
+        ]
+    },
+    {
+        "path": "passwortreset",
+        "text": "Passwort zurücksetzen",
+        "iconClass": "fa-group",
+        "visible": false
+    }
+]

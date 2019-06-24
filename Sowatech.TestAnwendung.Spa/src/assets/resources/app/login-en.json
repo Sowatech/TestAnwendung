@@ -1,0 +1,16 @@
+﻿{
+    "LOGIN": {
+        "WELCOME_TITLE": "Welcome",
+        "WELCOME_TEXT": " ",
+        "USERNAME_LABEL_TEXT": "login",
+        "USERNAME_REQUIRED_TEXT": "login username ist required",
+        "REGISTRATION_INFO_TEXT": "You have no access?",
+        "REGISTRATION_NAV_TEXT": "To registration",
+        "PASSWORD_LABEL_TEXT": "Password",
+        "PASSWORD_REQUIRED_TEXT": "password is required",
+        "PASSWORD_RESET_NAV_TEXT": "Forgot password?",
+        "LOGIN_BTN_TEXT": "Login",
+        "INFO_LOGIN_STARTED": "connect server...",
+        "ERROR_UNEXPECTED": "unexpected error. try again later or contact administrator"
+    }
+}

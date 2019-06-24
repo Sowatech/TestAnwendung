@@ -1,0 +1,27 @@
+{
+    "USER_GROUP": {
+        "BUTTON": {
+            "CREATE_USERGROUP": "neue Benutzergruppe"
+        },
+        "DIALOG": {
+            "TITLE": "Benutzergruppen",
+            "NAME_FIELD_TEXT": "Name",
+            "COMMENT_FIELD_TEXT": "Kommentar",
+            "USERROLES_FIELD_TEXT": "Benutzerrollen"
+        },
+        "GRID": {
+            "NAME_FIELD_TEXT": "Name",
+            "COMMENT_FIELD_TEXT": "Kommentar",
+            "ROLESCOMMALIST_FIELD_TEXT": "Rollen",
+            "UPDATE_BTN_TEXT": "Bearbeiten",
+            "DUPLICATE_BTN_TEXT": "Duplizieren",
+            "DELETE_BTN_TEXT": "Löschen"
+        },
+        "MESSAGE_BOX": {
+            "LOAD_ERROR_TEXT": "Fehler beim Laden der Daten vom Server",
+            "LOAD_ERROR_TITLE": "Fehler",
+            "SAVE_ERROR_TEXT": "Fehler beim Speichern der Daten auf dem Server",
+            "SAVE_ERROR_TITLE": "Fehler"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Sowatech.TestAnwendung.Application.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EventsCommandSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">iwf8jk*W;r(LsPy</Value>
+    </Setting>
+    <Setting Name="ImportCommandsFromWebServiceConfirmCommandsUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44386/EventsCommands/ConfirmCommands</Value>
+    </Setting>
+    <Setting Name="ImportCommandsFromWebServiceGetCommandsUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44386/EventsCommands/GetCommands</Value>
+    </Setting>
+    <Setting Name="MailQueueErrorPauseTimeInSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="MailQueueInitialDelayInSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="MailQueueParallelSendThreads" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="MailQueuePauseTimeImMs" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="SendEventsToExtranetEventHandlerUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44386/EventsCommands/ProcessEvents</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,19 @@
+﻿<loading-indicator #loadingIndicator>
+    <div>
+        <!-- <div class="pull-right m-b-sm">
+            <button class="btn btn-primary btn-xs" type="button" (click)="edit()"> {{'USER_SETTINGS.EDIT_SETTINGS_BTN_TEXT' | translate:lang}}</button>
+        </div> -->
+        <ibox [heading]="'Abschnitt'" [collapsed]="false">
+            <div class="form form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">{{'USER_SETTINGS.NAME_LABEL_TEXT' | translate:lang}}</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{model.wert}}</p>
+                    </div>
+                </div>
+            </div>
+        </ibox>
+
+    </div>
+</loading-indicator>
+<user-settings-edit #editDialog (onSubmit)="onSubmitEditDialog($event)"></user-settings-edit>

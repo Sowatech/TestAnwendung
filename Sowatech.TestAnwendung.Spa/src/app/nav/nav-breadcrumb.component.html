@@ -1,0 +1,12 @@
+﻿<ol class="breadcrumb">
+    <li *ngFor="let breadcrumb of breadcrumbs; let islast=last" [ngClass]="islast?'active':''">
+        <i *ngIf="breadcrumb.iconClass" [ngClass]="breadcrumb.iconClass" class="fa"></i>
+        <span *ngIf="!islast && !breadcrumb.path">
+            {{breadcrumb.text}}
+        </span>
+        <a *ngIf="!islast && breadcrumb.path" (click)="breadcrumbClicked(breadcrumb)">
+            <span><i class="fa fa-caret-right"></i> {{breadcrumb.text}} </span>
+        </a>
+        <strong *ngIf="islast">{{breadcrumb.text}}</strong>
+    </li>
+</ol>

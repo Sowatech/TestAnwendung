@@ -1,0 +1,28 @@
+{
+    "USER_LIST": {
+        "THEAD_USERNAME_TEXT": "Benutzername",
+        "THEAD_DISPLAYNAME_TEXT": "Anzeigename",
+        "THEAD_EMAIL_TEXT": "Email",
+        "EDIT_BTN_TEXT": "Bearbeiten",
+        "PASSWORD_BTN_TEXT": "Passwort",
+        "DELETE_BTN_TEXT": "Löschen",
+        "NEW_USER_BTN_TEXT": "neuer Benutzer",
+        "SELECT_VISIBLE_COLUMNS_BTN_TOOLTIP": "Spaltenauswahl",
+        "GRID": {
+            "USERNAME_FIELD_TEXT": "Benutzername",
+            "DISPLAYNAME_FIELD_TEXT": "Anzeigename",
+            "EMAIL_FIELD_TEXT": "Email",
+            "ACCESSSTART_FIELD_TEXT": "Zugang ab",
+            "ACCESSEND_FIELD_TEXT": "Zugang bis",
+            "USERGROUPNAME_FIELD_TEXT": "Benutzergruppe",
+            "ACTIONS_BTN_TEXT": "Aktionen",
+            "EDIT_BTN_TEXT": "Bearbeiten",
+            "PWCHANGE_BTN_TEXT": "Passwort ändern",
+            "DELETE_BTN_TEXT": "Löschen"
+        },
+        "MESSAGE_DIALOG_TITLE": "Fehler",
+        "MESSAGE_LOAD_ERROR": "Fehler beim laden der Daten vom Server.",
+        "MESSAGE_SAVE_ERROR": "Fehler beim speichern der Daten.",
+        "MESSAGE_SELF_DELETE": "Der aktuelle Benutzer kann sich nicht selbst löschen"
+    }
+}

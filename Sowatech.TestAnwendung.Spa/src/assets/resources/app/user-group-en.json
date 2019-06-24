@@ -1,0 +1,27 @@
+{
+    "USER_GROUP": {
+        "BUTTON": {
+            "CREATE_USERGROUP": "new UserGroup"
+        },
+        "DIALOG": {
+            "TITLE": "Usergroupes",
+            "NAME_FIELD_TEXT": "Name",
+            "COMMENT_FIELD_TEXT": "Comment",
+            "USERROLES_FIELD_TEXT": "Userroles"
+        },
+        "GRID": {
+            "NAME_FIELD_TEXT": "Name",
+            "COMMENT_FIELD_TEXT": "Comment",
+            "ROLESCOMMALIST_FIELD_TEXT": "Roles",
+            "UPDATE_BTN_TEXT": "Edit",
+            "DUPLICATE_BTN_TEXT": "Duplicate",
+            "DELETE_BTN_TEXT": "Delete"
+        },
+        "MESSAGE_BOX": {
+            "LOAD_ERROR_TEXT": "Error at loading.",
+            "LOAD_ERROR_TITLE": "Error",
+            "SAVE_ERROR_TEXT": "Error while saving.",
+            "SAVE_ERROR_TITLE": "Error"
+        }
+    }
+}

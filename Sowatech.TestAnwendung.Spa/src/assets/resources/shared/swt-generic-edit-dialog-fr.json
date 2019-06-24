@@ -1,0 +1,9 @@
+﻿{
+    "SWT_GENERIC_EDIT_DIALOG": {
+        "CANCEL_BTN_TEXT": "Abandonner",
+        "OK_BTN_TEXT": "OK",
+        "PASSWORD_CONFIRM_INPUT_TEXT": "(Répétition)",
+        "PASSWORD_CONFIRM_INPUT_ERROR_TEXT": "Les mots de passe ne correspondent pas",
+        "SELECT_PLACEHOLDER": "(Sélectionner)"
+    }
+}

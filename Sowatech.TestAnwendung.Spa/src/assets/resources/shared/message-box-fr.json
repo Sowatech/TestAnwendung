@@ -1,0 +1,9 @@
+﻿{
+  "MESSAGE_BOX": {
+    "CANCEL_BTN_TEXT": "abandonner",
+    "OK_BTN_TEXT": "OK",
+    "YES_BTN_TEXT": "oui",
+    "NO_BTN_TEXT": "aucun",
+    "CLOSE_BTN_TEXT": "près"
+  }
+}

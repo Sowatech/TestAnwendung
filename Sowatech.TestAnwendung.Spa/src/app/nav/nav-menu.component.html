@@ -1,0 +1,29 @@
+<ul class="nav" [ngClass]="horizontal ? 'navbar-nav':''">
+    <li *ngFor="let item of visibleItems()" [ngClass]="isActiveMenuItem(item)? 'active': ''" class="">
+        <a [id]="getId(item)" [routerLink]="getRouterLink(item)" *ngIf="hasPath(item)">
+            <i [ngClass]="item.iconClass?item.iconClass:''" class="fa"></i>
+            <span class="nav-label">{{item.text}}</span> <span class="fa arrow" [ngClass]="item.collapsed? 'fa-rotate-270':''" *ngIf="hasChildren(item)"></span>
+        </a>
+        <a href="javascript:void(0)" *ngIf="!hasPath(item)" (click)="toggleCollapse(item)">
+            <i [ngClass]="item.iconClass?item.iconClass:''" class="fa"></i>
+            <span class="nav-label">{{item.text}}</span> <span class="fa arrow" [ngClass]="item.collapsed? 'fa-rotate-270':''" *ngIf="hasChildren(item)"></span>
+        </a>
+        <ul class="nav nav-second-level collapse" [ngClass]="item.collapsed ?'in':''" *ngIf="hasChildren(item)">
+            <li *ngFor="let level2item of visibleItems(item)" [ngClass]="isActiveMenuItem(level2item)?'active':''">
+                <a [id]="getId(level2item)" [routerLink]="getRouterLink(level2item)" *ngIf="hasPath(level2item)">
+                    <i [ngClass]="level2item.iconClass?level2item.iconClass:''" class="fa"></i>
+                    <span class="nav-label">{{level2item.text}}</span> <span class="fa arrow" [ngClass]="level2item.collapsed? 'fa-rotate-270':''" *ngIf="hasChildren(level2item)"></span>
+                </a>
+                <a href="javascript:void(0)" *ngIf="!hasPath(level2item)" (click)="toggleCollapse(level2item)">
+                    <i [ngClass]="level2item.iconClass?level2item.iconClass:''" class="fa"></i>
+                    <span class="nav-label">{{level2item.text}}</span> <span class="fa arrow" [ngClass]="level2item.collapsed? 'fa-rotate-270':''" *ngIf="hasChildren(level2item)"></span>
+                </a>
+                <ul class="nav nav-third-level collapse" [ngClass]="level2item.collapsed ? 'in':''" *ngIf="hasChildren(level2item)">
+                    <li *ngFor="let level3item of visibleItems(level2item)" [ngClass]="isActiveMenuItem(level3item)?'active':''">
+                        <a [id]="getId(level3item)" [routerLink]="getRouterLink(level3item)">{{level3item.text}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

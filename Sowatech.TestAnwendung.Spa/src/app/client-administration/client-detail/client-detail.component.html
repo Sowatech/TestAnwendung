@@ -1,0 +1,64 @@
+﻿<div class="wrapper wrapper-content" *ngIf="model">
+    <div class="row">
+        <div class="col-lg-9">
+            <ibox [heading]="model.name" [collapsable]="false">
+                <div ibox-tools>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary btn-xs m-r-xs" (click)="createItem()">
+                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-institution"></i> Neuer Mandant </button>
+                        <button type="button" class="btn btn-danger btn-xs m-r-xs" (click)="deleteItem()">
+                            <i class="fa fa-trash-o"></i> Löschen </button>
+                    </div>
+                </div>
+                <tabset>
+                    <tab [heading]="'Organisation'">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="pull-right m-b-sm">
+                                        <button type="button" class="btn btn-default btn-xs" (click)="editItem()">
+                                            <i class="fa fa-edit"></i> Bearbeiten</button>
+                                    </div>
+                                    <div class="clear">
+                                        <dl class="dl-horizontal">
+                                            <dt>Name</dt>
+                                            <dd>{{model.name}}</dd>
+                                            <dt>Zugangsberechtigung</dt>
+                                            <dd>
+                                                <span [hidden]="!model.accessStart">ab {{model.accessStart|date:'shortDate'}}</span>
+                                                <span [hidden]="!model.accessEnd">bis {{model.accessEnd|date:'shortDate'}}</span>
+                                                <span [hidden]="model.accessStart || model.accessEnd">keine Beschränkung</span>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab [heading]="'Administratoren ('+clientUsers.userList.length+')'">
+                        <div class="panel-body">
+                            <client-users #clientUsers [clientId]="model.id"></client-users>
+                        </div>
+                    </tab>
+                </tabset>
+            </ibox>
+        </div>
+        <div class="col-lg-3">
+            <h4>Auswertung und Übersicht</h4>
+            <dl class="dl-horizontal">
+                <dt>Erstellt von</dt>
+                <dd>{{model.createdBy}}</dd>
+                <dt>Erstellt am</dt>
+                <dd>{{model.created |date:'short'}}</dd>
+                <dt>Geändert von</dt>
+                <dd>{{model.editedBy}}</dd>
+                <dt>Geändert am</dt>
+                <dd>{{model.edited |date:'short'}}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

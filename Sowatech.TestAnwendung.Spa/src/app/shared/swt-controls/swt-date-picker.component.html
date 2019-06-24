@@ -1,0 +1,57 @@
+<div class="datepicker-days" style="background-color:white">
+    <table class="table-condensed table-bordered small">
+        <thead>
+            <tr>
+                <th colspan="8">
+                    <div style="position:relative;width: 100%;display: block;height: 34px;">
+                        <div style="position:absolute;">
+                            <a class="btn btn-white" (click)="previous()">«</a>
+                        </div>
+                        <div style="position:absolute;right:0">
+                            <a class="btn btn-white"  (click)="next()">»</a>
+                        </div>
+                        <div [hidden]="displayModus == DISPLAY_MODUS_YEARS" class="text-center" style="line-height: 32px;">
+                            {{currentMonthAndYear| date:'MMMM'}} <span style="cursor:pointer;width:32px;" (click)="setModusYear()"> {{currentMonthAndYear| date:'yyyy'}}   </span>
+                        </div>
+                        <div [hidden]="displayModus == DISPLAY_MODUS_DAYS" class="text-center" style="line-height: 32px;">
+                        {{'SWT_DATE_PICKER.SELECT_YEAR_TEXT' | translate:lang}}
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            <tr [hidden]="displayModus == DISPLAY_MODUS_YEARS">
+                <th></th>
+                <th *ngFor="let dayOfWeek of daysOfWeek" style="width:32px;padding:2px">
+                    {{dayOfWeek}}
+                </th>
+            </tr>
+        </thead>
+
+        <tbody [hidden]="displayModus == DISPLAY_MODUS_YEARS">
+            <tr class="week" *ngFor="let week of weeks">
+                <!--<th class="text-center"><small style="cursor:default">{{week.weekNumber}}</small></th>-->
+                <th text-center></th>
+                <td class="text-center" [ngClass]="dayOfWeek.cssClass" *ngFor="let dayOfWeek of week.days" (click)="select(dayOfWeek.currentDate)" style="cursor:pointer;width:32px">
+                    {{dayOfWeek.currentDate| date:'d'}}
+                </td>
+            </tr>
+        </tbody>
+
+        <tbody [hidden]="displayModus == DISPLAY_MODUS_DAYS">
+            <tr class="week" *ngFor="let arrayYears of yearAuswahl">
+                <td class="text-center" *ngFor="let year of arrayYears" (click)="setYear(year)" style="cursor:pointer;width:64px;padding: 3px;">
+                    {{year}}
+                </td>
+            </tr>
+        </tbody>
+
+
+        <tfoot>
+            <tr>
+                <th [hidden]="displayModus == DISPLAY_MODUS_YEARS" colspan="8" class="text-center">
+                    <button class="btn btn-sm btn-white" type="button" (click)="today()">{{'SWT_DATE_PICKER.TODAY_BTN_TEXT' | translate:lang}}</button>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

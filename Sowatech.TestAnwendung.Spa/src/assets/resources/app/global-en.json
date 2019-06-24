@@ -1,0 +1,59 @@
+{
+    "GLOBAL": {
+        "DIALOGS": {
+            "COACH_ASSING_DIALOG": {
+                "TITLE": "Coach assign",
+                "USER_FIELD_TEXT": "User",
+                "DISPLAYNAME_TEXT": "Display-Name",
+                "FORENAME_FIELD_TEXT": "Forename",
+                "LASTNAME_FIELD_TEXT": "Lastname"
+            },
+            "CLIENT_ADD_DIALOG": {
+                "NAME": "Name",
+                "ACCESS_FROM": "access from",
+                "ACCESS_TO": "access to",
+                "ADMINISTRATOR": "Administrator",
+                "USERNAME": "Username",
+                "DISPLAYNAME": "displayname",
+                "EMAIL": "Email",
+                "PASSWORD": "Password"
+            },
+            "CLIENT_DIALOG": {
+                "NAME": "Name",
+                "ACCESS_FROM": "access from",
+                "ACCESS_TO": "access to"
+            }
+        },
+        "ENUMS": {
+            "APPOINTMENTSTATUS": {
+                "FUTURE": "Future",
+                "CLOSED": "Closed",
+                "ABORTED": "Aborted"
+            },
+            "GENDER": {
+                "MALE": "Male",
+                "FEMALE": "Female",
+                "OTHER": "Other",
+                "UNKNOWN": "Unknown"
+            },
+            "APPOINTMENTTYPE": {
+                "CHECKUP": "Open",
+                "COACHING": "Completed"
+            },
+            "SESSIONTYPE": {
+                "SESSIONITEM": {
+                    "CHECKUP": "Checkup",
+                    "INITIALCOACHING": "Initial Coaching",
+                    "MEDIC": "Medical Consultation",
+                    "COACHING": "Coaching"
+                },
+                "PERSONITEM": {
+                    "CHECKUP": "Checkup Coach",
+                    "INITIALCOACHING": "Initial Coach",
+                    "MEDIC": "Medic",
+                    "COACHING": "Coach"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,154 @@
+<form class="form form-horizontal" #dialogForm="ngForm">
+    <div *ngFor="let field of cat.dialogFields" [ngClass]="field.required?'required':''" [ngSwitch]="field.controlType" [hidden]="!fieldVisible(field)">
+        <div *ngSwitchDefault class="form-group" [ngClass]="formErrors[field.fieldname]?'has-error':''">
+            <label class="control-label col-sm-4">{{field.text}} <span *ngIf="field.unit">({{field.unit}})</span></label>
+            <div class="col-sm-8">
+                <input *ngIf="field.textMask" type="{{field.controlType}}" [textMask]="field.textMask" class="form-control no-spinners" [attr.name]="field.fieldname" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" [required]="field.required" [autofocus]="field.autofocus" />
+                <input *ngIf="!field.textMask" type="{{field.controlType}}" class="form-control no-spinners" [attr.name]="field.fieldname" name="{{field.fieldname}}" [placeholder]="field.placeholder?field.placeholder:''" [(ngModel)]="editItem[field.fieldname]" [min]="field.min" [max]="field.max" [maxlength]="field.maxLength" [required]="field.required" [autofocus]="field.autofocus" />
+                <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                <div *ngIf="formErrors[field.fieldname]" class="m-t-xs alert alert-danger">
+                    {{ formErrors[field.fieldname] }}
+                </div>
+            </div>
+        </div>
+        <ng-container *ngSwitchCase="'password-with-confirm'">
+            <div class="form-group">
+                <label class="control-label col-sm-4">{{field.text}}</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" [attr.name]="field.fieldname" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" [maxlength]="field.maxLength" [required]="field.required" [autofocus]="field.autofocus" />
+                    <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">{{field.text}} Wiederholung</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="PasswordPasswordConfirm" [(ngModel)]="editItem[field.fieldnamePasswordConfirm]" [maxlength]="field.maxLength" />
+                    <div *ngIf="passwordConfirmInvalid(field)" class="text-danger">{{'SWT_GENERIC_EDIT_DIALOG.PASSWORD_CONFIRM_INPUT_ERROR_TEXT' | translate:lang}}</div>
+                </div>
+            </div>
+        </ng-container>
+        <div *ngSwitchCase="'checkbox'" class="form-group">
+            <label class="control-label col-sm-4">{{field.text}}</label>
+            <div class="col-sm-8 form-control-static">
+                <swt-checkbox [attr.name]="field.fieldname" [activeChangeDetectionHack]="true" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]"></swt-checkbox>
+                <br>
+                <span *ngIf="field.help" class="help-block m-t-sm m-b-none">{{field.help}}</span>
+            </div>
+        </div>
+        <div *ngSwitchCase="'date'" class="form-group">
+            <label class="control-label col-sm-4">{{field.text}}</label>
+            <div class="col-sm-8">
+                <swt-dropdown-container #datedropdown (onShow)="swtDatePicker.refresh()" [id]="field.fieldname" [allowClear]="!field.required" (onClear)="clearClicked(field)" [width]="'100%'">
+                    <swt-date-input dropdown-input [name]="field.fieldname" [(ngModel)]="editItem[field.fieldname]" [required]="field.required" [autofocus]="field.autofocus"></swt-date-input>
+                    <swt-date-picker #swtDatePicker name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" (change)="datedropdown.collapse($event)"></swt-date-picker>
+                </swt-dropdown-container>
+                <!--<swt-dropdown-container #datedropdown (onShow)="swtDatePicker.refresh()" [id]="field.fieldname" [displayValue]="editItem[field.fieldname]| date:'shortDate'" [allowClear]="!field.required" (onClear)="clearClicked(field)" [width]="'100%'">
+                    <swt-date-picker #swtDatePicker name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" (change)="datedropdown.collapse($event)"></swt-date-picker>
+                </swt-dropdown-container>-->
+                <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+            </div>
+        </div>
+        <div *ngSwitchCase="'dateInput'" class="form-group">
+            <label class="control-label col-sm-4">{{field.text}}</label>
+            <div class="col-sm-8">
+                <swt-date-input [attr.name]="field.fieldname" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" [required]="field.required" [autofocus]="field.autofocus"></swt-date-input>
+                <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                <div *ngIf="formErrors[field.fieldname]" class="m-t-xs alert alert-danger">
+                    {{ formErrors[field.fieldname] }}
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="'time'" class="form-group">
+            <label class="control-label col-sm-4">{{field.text}}</label>
+            <div class="col-sm-8">
+                <swt-dropdown-container [displayValue]="editItem[field.fieldname]| date:'mediumTime'" [allowClear]="!field.required" (onClear)="clearClicked(field)" [width]="'100%'" #datedropdown>
+                    <div class="gray-bg">
+                        <timepicker name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" [showMeridian]="false"></timepicker>
+                    </div>
+                </swt-dropdown-container>
+                <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+            </div>
+        </div>
+        <div *ngSwitchCase="'textarea'" class="form-group">
+            <label class="control-label col-sm-4">
+                {{field.text}}
+                <span *ngIf="field.unit">({{field.unit}})</span>
+            </label>
+            <div class="col-sm-8">
+                <textarea class="form-control" [attr.name]="field.fieldname" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" [maxlength]="field.maxLength" [required]="field.required" [autofocus]="field.autofocus"></textarea>
+                <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+            </div>
+        </div>
+        <div *ngSwitchCase="'info-text'" class="form-group">
+            <label *ngIf="field.text" class="control-label col-sm-4">
+                {{field.text}}
+                <span *ngIf="field.unit">({{field.unit}})</span>
+            </label>
+            <div [ngClass]="field.text ? 'col-sm-8' :'col-sm-12'" class="form-control-static">
+                <p *ngIf="field.fieldname" class="help-block m-b-none text-wrap" [innerHTML]="editItem[field.fieldname]"></p>
+                <p *ngIf="field.help" class="help-block m-b-none text-wrap" [innerHTML]="field.help"></p>
+            </div>
+        </div>
+        <ng-container *ngSwitchCase="'select'">
+            <div class="form-group">
+                <label class="control-label col-sm-4">
+                    {{field.text}}
+                    <span *ngIf="field.unit">({{field.unit}})</span>
+                </label>
+                <ng-container *ngIf="!hasLookups(field)">
+                    <div class="col-sm-8">
+                        <div class="form-control-static">(nicht änderbar)</div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="hasLookups(field)">
+                    <ng-container *ngIf="!field.multiSelectLookups && !field.radioLookups">
+                        <div class="col-sm-8">
+                            <select class="form-control" [attr.name]="field.fieldname" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]" [autofocus]="field.autofocus">
+                                <option *ngFor="let lookUp of getLookups(field)" value="{{lookUp.value}}">{{lookUp.text}}</option>
+                            </select>
+                            <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!field.multiSelectLookups && field.radioLookups">
+                        <div class="col-sm-8">
+                            <div *ngFor="let lookUp of getLookups(field)" class="radio">
+                                <label for="field-{{lookUp.value}}">
+                                    <input [attr.name]="field.fieldname" type="radio" id="{{field.fieldname}}-{{lookUp.value}}" name="{{field.fieldname}}-{{lookUp.value}}" value="{{lookUp.value}}" [(ngModel)]="editItem[field.fieldname]"> {{lookUp.text}}
+                                </label>
+                            </div>
+                            <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="field.multiSelectLookups">
+                        <div class="col-sm-8 form-control-static">
+                            <ng-select style="z-index:3;" placeholder="{{'SWT_GENERIC_EDIT_DIALOG.SELECT_PLACEHOLDER' | translate:lang}}" [multiple]="true" [options]="getLookupsWithLabel(field)" [attr.name]="field.fieldname" name="{{field.fieldname}}" [(ngModel)]="editItem[field.fieldname]"></ng-select>
+                            <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'grid'">
+            <h4 *ngIf="field.text">{{field.text}}</h4>
+            <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+            <swt-grid [attr.id]="field.fieldname" [config]="field.grid" [datasource]="getDynamicDatasource(field)"></swt-grid>
+        </ng-container>
+        <div *ngSwitchCase="'divider'" class="form-group">
+            <div class="hr-line-dashed m-t-xs m-b-xs"></div>
+            <h4 *ngIf="field.text">{{field.text}}</h4>
+            <p *ngIf="field.help" class="help-block m-b-none">{{field.help}}</p>
+        </div>
+        <ng-container *ngSwitchCase="'buttons'">
+            <div class="form-group" *ngIf="containsFormButtons(field)">
+                <label class="control-label col-sm-4">{{field.text}}</label>
+                <div class="col-sm-8 form-control-static">
+                    <button *ngFor="let btn of formButtons(field)" type="button" class="btn m-r-xs {{btn.buttonClass}}" [ngClass]="{'btn-xs':small,'btn-sm':!small}" [title]="btn.tooltip" (click)="onButtonClicked(btn,editItem)">
+                        <i *ngIf="btn.iconClass" class="fa {{btn.iconClass}}"></i>
+                        {{btn.text}}
+                    </button>
+                    <span *ngIf="field.help" class="help-block m-b-none">{{field.help}}</span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</form>

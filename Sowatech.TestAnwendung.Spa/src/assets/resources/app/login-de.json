@@ -1,0 +1,16 @@
+﻿{
+    "LOGIN": {
+        "WELCOME_TITLE": "Willkommen",
+        "WELCOME_TEXT": "Willkommen Text",
+        "USERNAME_LABEL_TEXT": "Benutzername",
+        "USERNAME_REQUIRED_TEXT": "Benutzername ist ein Pflichtfeld",
+        "REGISTRATION_INFO_TEXT": "Sie haben noch keinen Zugang?",
+        "REGISTRATION_NAV_TEXT": "Zur Registrierung",
+        "PASSWORD_LABEL_TEXT": "Kennwort",
+        "PASSWORD_REQUIRED_TEXT": "Passwort ist ein Pflichtfeld",
+        "PASSWORD_RESET_NAV_TEXT": "Passwort vergessen?",
+        "LOGIN_BTN_TEXT": "Anmelden",
+        "INFO_LOGIN_STARTED": "Kontaktiere Server...",
+        "ERROR_UNEXPECTED": "Unerwarteter Fehler"
+    }
+}

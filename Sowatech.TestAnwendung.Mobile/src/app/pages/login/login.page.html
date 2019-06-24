@@ -1,0 +1,35 @@
+﻿<ion-content>
+
+    <div text-center padding-top>
+        <h1>kundenname.produktname</h1>
+        <h2>Willkommen</h2>
+        <p>Willkommens-Text</p>
+    </div>
+
+    <form #f="ngForm">
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>Nutzer Name</ion-label>
+                <ion-input type="text" name="username" [(ngModel)]="model.username" #usernameCtrl="ngModel" required maxlength="50"></ion-input>
+            </ion-item>
+            <div padding-horizontal *ngIf="submitted && !usernameCtrl.valid">
+                <ion-label color="danger">Benutzername muss gesetzt sein!</ion-label>
+            </div>
+
+            <ion-item>
+                <ion-label stacked>Passwort</ion-label>
+                <ion-input type="password" name="password" [(ngModel)]="model.password" #passwordCtrl="ngModel" required maxlength="50"></ion-input>
+            </ion-item>
+            <div padding-horizontal *ngIf="submitted && !passwordCtrl.valid">
+                <ion-label color="danger">Passwort muss gesetzt sein!</ion-label>
+            </div>
+
+            <ion-item hidden>fix item for border-issue</ion-item>
+        </ion-list>
+
+        <div padding>
+            <button block ion-button (keyup.enter)="submitted=true; login(f.valid)" (click)="submitted=true; login(f.valid)">Einloggen</button>
+        </div>
+    </form>
+
+</ion-content>

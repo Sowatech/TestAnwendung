@@ -1,0 +1,9 @@
+<ibox [collapsable]="false">
+    <div ibox-tools>
+        <div class="pull-right">
+            <button class="btn btn-primary btn-xs" (click)="createItem()" title="Neuen Benutzer anlegen"><i class="fa fa-plus"></i> <i class="fa fa-user"></i> {{'USER_LIST.NEW_USER_BTN_TEXT' | translate:lang}}</button>
+        </div>
+    </div>
+    <ds-datasource #userDatasource [src]="userList" [idfield]="'userName'"></ds-datasource>
+    <swt-grid #userListGrid [datasource]=userDatasource [store-key]="'liegenschaft-users'" [idfield]="'userName'"></swt-grid>
+</ibox>

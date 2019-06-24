@@ -1,0 +1,26 @@
+<label *ngIf="showYear">{{selectedMonth.year}}</label>
+<div class="row">
+  <div class="col-xs-12 col-sm-1" style="padding-right:0">
+    <div class="month-padding">
+      <button (click)="decreaseYear()" class="btn btn-sm btn-primary btn-outline btn-block" style="padding-left:5px;overflow:hidden" title="{{selectedMonth.year-1}}">
+        <i class="fa fa-arrow-left"></i> <span class="hidden-sm hidden-md">{{selectedMonth.year-1}}</span> 
+      </button>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-10">
+    <div class="row">
+      <div *ngFor="let month of months" class="col-lg-1 col-md-2 col-sm-4 col-xs-12 month-padding">
+        <button [attr.title]="month.text" style="overflow:hidden;" class="btn btn-sm btn-block btn-primary" [ngClass]="month.monthIndex==selectedMonth.monthIndex?'':'btn-outline'" (click)="selectMonth(month.monthIndex)" title="{{month.text}} {{selectedMonth.year}}">
+          {{month.text}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-1"  style="padding-right:0">
+    <div class="month-padding">
+      <button (click)="increaseYear()" class="pull-right btn btn-sm btn-primary btn-outline btn-block" style="padding-left:5px;overflow:hidden" title="{{selectedMonth.year+1}}">
+        <i class="fa fa-arrow-right"></i> <span class="hidden-sm hidden-md">{{selectedMonth.year+1}}</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div style="display:inline-block" [style.width]="width">
+    <div *ngIf="!displayValue" class="input-group">
+        <ng-content select="[dropdown-input]"></ng-content>
+        <span class="input-group-addon" id="addon-toggle-collapse" (click)="toggleCollapse($event)"><i class="fa" [ngClass]="collapsed? 'fa-caret-down':'fa-caret-up'"></i> </span>
+        <span *ngIf="allowClear" class="input-group-addon" id="addon-toggle-clear" (click)="clear($event)"><i class="fa fa-times"></i> </span>
+    </div>
+    <div *ngIf="displayValue" class="input-dropdown form-control" [style.width]="width" (click)="toggleCollapse($event)">
+        {{displayValue}}
+        <div class='pull-right'>
+            <i class="fa" [ngClass]="collapsed? 'fa-caret-down':'fa-caret-up'"></i>
+            <i class="m-l-xs fa" [ngClass]="allowClear? 'fa-times':'hidden'" (click)='clear($event)'></i>
+        </div>
+    </div>
+
+    <div [hidden]="collapsed" style="position:relative">
+        <div style="position:absolute;z-index:10">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

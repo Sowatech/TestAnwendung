@@ -1,0 +1,26 @@
+﻿<loading-indicator #loadingIndicator>
+    <div class="row">
+        <div class="col-md-6">
+            <ibox [heading]="'Mailversand (SMTP)'" [collapsable]="false">
+                <div ibox-tools>
+                    <button class="btn btn-primary btn-xs" type="button" (click)="editSmtp()"> <i class="fa fa-edit"></i> {{'CLIENT_SETTINGS.EDIT_SMTP_SETTINGS_BTN_TEXT' | translate:lang}}</button>
+                    <button class="btn btn-defaul btn-xs" type="button" (click)="sendTestMail()"> <i class="fa fa-envelope-o"></i> {{'CLIENT_SETTINGS.SEND_TESTMAIL_BTN_TEXT' | translate:lang}}</button>
+                </div>
+                <dl class="dl-horizontal">
+                    <dt>{{'CLIENT_SETTINGS.SERVERNAME_LABEL_TEXT' | translate:lang}}</dt>
+                    <dd>{{model.smtpAccount.serverUrl}}</dd>
+
+                    <dt>{{'CLIENT_SETTINGS.USERNAME_LABEL_TEXT' | translate:lang}}</dt>
+                    <dd>{{model.smtpAccount.username}}</dd>
+
+                    <dt>{{'CLIENT_SETTINGS.EMAIL_ADDRESS_LABEL_TEXT' | translate:lang}}</dt>
+                    <dd>{{model.smtpAccount.email}}</dd>
+
+                    <dt>{{'CLIENT_SETTINGS.SSL_ENABLED_LABEL_TEXT' | translate:lang}}</dt>
+                    <dd *ngIf="model.smtpAccount.sslEnabled">{{'CLIENT_SETTINGS.SSL_ENABLED_TRUE' | translate:lang}}</dd>
+                    <dd *ngIf="!model.smtpAccount.sslEnabled">{{'CLIENT_SETTINGS.SSL_ENABLED_FALSE' | translate:lang}}</dd>
+                </dl>
+            </ibox>
+        </div>
+    </div>
+</loading-indicator>

@@ -1,0 +1,7 @@
+﻿<div class="pull-right">
+    <button class="btn btn-primary btn-xs" (click)="createItem()" title="Neuen Administrator anlegen"><i class="fa fa-plus"></i> <i class="fa fa-user"></i> Neuer Administrator</button>
+</div>
+<div class="clear">
+    <ds-datasource #userDatasource [src]="userList" [idfield]="'username'"></ds-datasource>
+    <swt-grid #userListGrid [datasource]=userDatasource [store-key]="'client-users'" [idfield]="'username'"></swt-grid>
+</div>

@@ -1,0 +1,43 @@
+<div class="form-inline m-b-sm">
+    <!--<small>{{currentInterval.start}}|{{currentInterval.end}}</small><br />-->
+      <div class="form-group" *ngIf="selectItems.length > 1">
+          <select name="intervalSelectType" class="form-control" id="intervalSelectType" [(ngModel)]="intervalSelectType" (ngModelChange)="onIntervalChange()">
+              <option *ngFor="let item of selectItems" [value]="item.value">
+                  {{item.text}}
+              </option>
+          </select>
+      </div>
+  
+      <div class="form-group" *ngIf="fromDatePickerVisible">
+          <swt-dropdown-container #swtFromcontainer [width]="'120px'" [displayValue]="currentInterval.start | date:'dd.MM.yyyy'">
+              <swt-date-picker name="selectedFromDate" [(ngModel)]="currentInterval.start" (ngModelChange)="onIntervalChange()" (change)="onInputChange($event,swtFromcontainer)"></swt-date-picker>
+          </swt-dropdown-container>
+      </div>
+  
+      <label>{{delimiter}}</label>
+  
+      <div class="form-group" *ngIf="datepickervisible">
+          <swt-dropdown-container #swtTocontainer [width]="'120px'" [displayValue]="currentInterval.end | date:'dd.MM.yyyy'">
+              <swt-date-picker name="selectedDate" [(ngModel)]="currentInterval.end" (ngModelChange)="onIntervalChange()" (change)="onInputChange($event,swtTocontainer)"></swt-date-picker>
+          </swt-dropdown-container>
+          <span [hidden]="!startEndError" class="text-warning"><i class="fa fa-warning" title="Ende liegt vor Start"></i></span>
+      </div>
+    
+      <div class="form-group" *ngIf="monthvisible">
+          <select name="selectedMonthIndex" class="form-control" [(ngModel)]="selectedMonth" (ngModelChange)="onMonthYearChange()" (change)="onInputChange($event)">
+              <option *ngFor="let month of months" [value]="month.value">
+                  {{month.text}}
+              </option>
+          </select>
+          &nbsp;
+          <button type="button" class="btn btn-primary" (click)="selectedYearAdd(-1)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+          <input name="selectedYear" class="form-control no-spinners" style="width:100px" [(ngModel)]="selectedYear" type="number" (ngModelChange)="onMonthYearChange()"/>
+          <button type="button" class="btn btn-primary" (click)="selectedYearAdd(1)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      </div>
+      <div class="form-group" *ngIf="yearvisible">
+          <button type="button" class="btn btn-primary" (click)="selectedYearAdd(-1)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+          <input name="selectedYear" class="form-control no-spinners" style="width:100px" [(ngModel)]="selectedYear" type="number" (ngModelChange)="onMonthYearChange()"/>
+          <button type="button" class="btn btn-primary" (click)="selectedYearAdd(1)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      </div>
+  </div>
+  

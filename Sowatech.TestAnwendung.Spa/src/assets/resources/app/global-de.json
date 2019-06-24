@@ -1,0 +1,66 @@
+{
+    "GLOBAL": {
+        "DIALOGS": {
+            "COACH_ASSING_DIALOG": {
+                "TITLE": "Coach zuweisen",
+                "USER_FIELD_TEXT": "Benutzer",
+                "DISPLAYNAME_TEXT": "Anzeigename",
+                "FORENAME_FIELD_TEXT": "Vorname",
+                "LASTNAME_FIELD_TEXT": "Nachname"
+            },
+            "CLIENT_ADD_DIALOG": {
+                "NAME": "Name",
+                "ACCESS_FROM": "Zugang ab",
+                "ACCESS_TO": "Zugang bis",
+                "ADMINISTRATOR": "Administrator",
+                "USERNAME": "Benutzername",
+                "DISPLAYNAME": "Anzeigename",
+                "EMAIL": "Email",
+                "PASSWORD": "Kennwort"
+            },
+            "CLIENT_DIALOG": {
+                "NAME": "Name",
+                "ACCESS_FROM": "Zugang ab",
+                "ACCESS_TO": "Zugang bis"
+            },
+            "SMTP_DIALOG": {
+                "SERVERURL": "SMTP Server Url",
+                "USERNAME": "Benutzername",
+                "EMAIL": "Email",
+                "SSL": "SSL",
+                "PASSWORD": "Passwort"
+            }
+        },
+        "ENUMS": {
+            "APPOINTMENTSTATUS": {
+                "FUTURE": "Offen",
+                "CLOSED": "Abgeschlossen",
+                "ABORTED": "Storniert"
+            },
+            "GENDER": {
+                "MALE": "Herr",
+                "FEMALE": "Frau",
+                "OTHER": "Neutral",
+                "UNKNOWN": "Nicht bekannt"
+            },
+            "APPOINTMENTTYPE": {
+                "CHECKUP": "Offen",
+                "COACHING": "Abgeschlossen"
+            },
+            "SESSIONTYPE": {
+                "SESSIONITEM": {
+                    "CHECKUP": "Checkup",
+                    "INITIALCOACHING": "Erstgespräch",
+                    "MEDIC": "Arztgespräch",
+                    "COACHING": "Coaching"
+                },
+                "PERSONITEM": {
+                    "CHECKUP": "Carecenter-Coach",
+                    "INITIALCOACHING": "Erstgespräch-Coach",
+                    "MEDIC": "Arzt",
+                    "COACHING": "Coaching-Coach"
+                }
+            }
+        }
+    }
+}

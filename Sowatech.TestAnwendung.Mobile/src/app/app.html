@@ -1,0 +1,23 @@
+<ion-menu [content]="content" (ionOpen)="menuOpened()" (ionClose)="menuClosed()">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Menu 
+                    <button id="btn_test" *ngIf="isTestUser" (click)="openTest()" class="visible-only-for-protractor"></button>
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list no-lines>
+            <ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon [hidden]="!p.icon" name="{{p.icon}}" item-left></ion-icon>
+                {{p.title}}
+            </ion-item>
+            <ion-item-divider></ion-item-divider>
+            <ion-item (click)="logout()">
+                <ion-icon color="danger" name="exit" item-left></ion-icon>
+                <ion-label color="danger">logout</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,51 @@
+﻿<backdrop>
+    <div class="middle-box text-center loginscreen animated fadeInDown" *ngIf="translationLoaded">
+        <div *ngIf="!isLoggedIn">
+            <div>
+                <h1 class="logo-name" style="font-size:30px;letter-spacing: -0px;">Projektname</h1>
+            </div>
+            <h3>{{welcome_title}}</h3>
+            <!--<p>{{welcome_text}}</p>-->
+            <form>
+                <div class="form-group">
+                    <label class="control-label" for="UserName">{{username_label_text}}</label>
+                    <input id="username" autocomplete="username" type="text" name="UserName" class="form-control" [(ngModel)]="username" #usernamectrl="ngModel" required autofocus (keyup.enter)="anmelden()" />
+                    <div [hidden]="usernamectrl.valid || usernamectrl.pristine">
+                        <label class="error">{{username_required_text}}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="Password">{{password_label_text}}</label>
+                    <input id="password" autocomplete="current-password" type="password" name="Password" class="form-control" [(ngModel)]="password" #passwordctrl="ngModel" required (keyup.enter)="anmelden()" />
+                    <div [hidden]="passwordctrl.valid || passwordctrl.pristine">
+                        <label class="error">{{password_required_text}}</label>
+                    </div>
+                </div>
+
+                <button id="btn_anmelden" type="submit" class="btn btn-primary block full-width m-b" (click)="anmelden()">{{login_btn_text}}</button>
+            </form>
+            <a (click)="navigateToPasswortReset()"><small>{{password_reset_nav_text}}</small></a>
+
+            <!--<p class="text-muted text-center"><small>{{'LOGIN.REGISTRATION_INFO_TEXT' | translate:lang}}</small></p>
+            <button type="button" class="btn btn-white block full-width m-b" (click)="navigateToRegister()">{{'LOGIN.REGISTRATION_NAV_TEXT' | translate:lang}}</button>-->
+
+
+            <p class="bg-info">
+                {{loginStartedText}}
+            </p>
+
+            <p class="bg-danger">
+                {{customErrorText}}
+            </p>
+        </div>
+        <div *ngIf="isLoggedIn">
+            <dl>
+                <dt>Sie sind bereits angemeldet</dt>
+                <dd *ngIf="loggedInUsername">{{loggedInUsername}}</dd>
+            </dl>
+            <button type="button" class="btn btn-default block full-width m-b" (click)="navigateToFirst()">zur Anwendung</button>
+			<button type="button" class="btn btn-light block full-width m-b" (click)="logout()">Abmelden</button>
+        </div>
+    </div>
+</backdrop>

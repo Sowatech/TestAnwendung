@@ -1,0 +1,27 @@
+﻿<div class="ng-gallery">
+    <div *ngFor="let image of images; let index = index" class="img-wrap">
+        <span class="lightboxBtn">
+            <span *ngFor="let button of actions.imageButtons">
+                <button *ngFor="let btn of actions.imageButtons" type="button" class="btn m-r-xs {{btn.buttonClass}}" [title]="btn.tooltip" (click)="buttonClicked($event,btn.ident,image)">
+                    <i *ngIf="btn.iconClass" class="fa {{btn.iconClass}}"></i>
+                    {{btn.text}}
+                </button>
+            </span>
+        </span>
+        <div [style.width]="thumbSize" [style.height]="thumbSize" class="ng-thumb">
+            <img src="{{image.thumbUrl}}" [style.max-width]="thumbSize" (click)="openImage(image.imageName)" alt="{{'LIGHTBOX.IMAGE_COUNT_TEXT' | translate:lang}} {{ index + 1 }}" />
+        </div>
+    </div>
+</div>
+<div class="ng-overlay" *ngIf="opened">
+    <div class="ng-gallery-content">
+        <div class="uil-ring-css" *ngIf="!currentImage || !currentImage.imageUrl">
+            <div></div>
+        </div>
+        <a class="close-popup" (click)="closeImage()"><i class="fa fa-close"></i></a>
+        <a class="nav-left" *ngIf="images.length >1" (click)="prevImage()"><i class="fa fa-angle-left"></i></a>
+        <img *ngIf="currentImage && currentImage.imageUrl" [src]="currentImage.imageUrl" (click)="nextImage()" class="effect" />
+        <a class="nav-right" *ngIf="images.length >1" (click)="nextImage()"><i class="fa fa-angle-right"></i></a>
+        <span class="info-text">{{ currentImageIndex + 1 }}/{{ images.length }} - {{'LIGHTBOX.IMAGE_COUNT_TEXT' | translate:lang}} {{currentImageIndex+1}}</span>
+    </div>
+</div>

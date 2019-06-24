@@ -1,0 +1,8 @@
+{
+  "LAYOUT_DEFAULT": {
+    "LOGOUT_BTN_TEXT": "Abmelden",
+    "LOGOUT_SERVER_ERROR_TITLE": "Fehler",
+    "LOGOUT_SERVER_ERROR_TEXT": "Fehler beim Abmelden vom Server",
+    "LOGON_BTN_TEXT": "Login"
+  }
+}

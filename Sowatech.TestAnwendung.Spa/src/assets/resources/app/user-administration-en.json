@@ -1,0 +1,28 @@
+{
+    "USER_LIST": {
+        "THEAD_USERNAME_TEXT": "username",
+        "THEAD_DISPLAYNAME_TEXT": "display name",
+        "THEAD_EMAIL_TEXT": "email",
+        "EDIT_BTN_TEXT": "edit",
+        "PASSWORD_BTN_TEXT": "password",
+        "DELETE_BTN_TEXT": "delete",
+        "NEW_USER_BTN_TEXT": "new User",
+        "SELECT_VISIBLE_COLUMNS_BTN_TOOLTIP": "select columns",
+        "GRID": {
+            "USERNAME_FIELD_TEXT": "Username",
+            "DISPLAYNAME_FIELD_TEXT": "Displayname",
+            "EMAIL_FIELD_TEXT": "Email",
+            "ACCESSSTART_FIELD_TEXT": "Access start",
+            "ACCESSEND_FIELD_TEXT": "Access end",
+            "USERGROUPNAME_FIELD_TEXT": "Usergroup-Name",
+            "ACTIONS_BTN_TEXT": "Actions",
+            "EDIT_BTN_TEXT": "Edit",
+            "PWCHANGE_BTN_TEXT": "Change Password",
+            "DELETE_BTN_TEXT": "Delete"
+        },
+        "MESSAGE_DIALOG_TITLE": "Error",
+        "MESSAGE_LOAD_ERROR": "Error at loading.",
+        "MESSAGE_SAVE_ERROR": "Error while saving.",
+        "MESSAGE_SELF_DELETE": "The current user can not delete himself"
+    }
+}

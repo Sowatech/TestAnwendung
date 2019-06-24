@@ -1,0 +1,15 @@
+﻿{
+  "CLIENT_SETTINGS": {
+    "SEND_TESTMAIL_BTN_TEXT": "Send Testmail",
+    "EDIT_SMTP_SETTINGS_BTN_TEXT": "Edit SMTP Settings",
+    "SSL_ENABLED_FALSE": "No",
+    "SSL_ENABLED_TRUE": "Yes",
+    "SSL_ENABLED_LABEL_TEXT": "SSL-Encoding",
+    "EMAIL_ADDRESS_LABEL_TEXT": "Emailaddress",
+    "USERNAME_LABEL_TEXT": "Username",
+    "SERVERNAME_LABEL_TEXT": "Servername",
+    "SERVER_URL_LABEL_TEXT": "SMTP Server Url",
+    "PASSWORD_LABEL_TEXT": "Password",
+    "EMAIL_LABEL_TEXT": "Email"
+  }
+}

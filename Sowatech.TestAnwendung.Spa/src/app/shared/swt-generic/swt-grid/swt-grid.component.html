@@ -1,0 +1,141 @@
+<loading-indicator #loadingIndicator>
+    <div class="dataTables_wrapper dt-bootstrap table-responsive" [style.min-height]="listDatasource.hasData || showEmptyGrid ? minHeight:''"
+        style="position:relative;overflow-y:visible">
+        <table class="table table-striped no-margins dataTable {{gridClass}}" *ngIf="listDatasource.hasData || showEmptyGrid" [ngClass]="{small:small,'table-condensed':small,'table-hover':tableHover,'table-fixed':rowHeight>0}">
+            <thead>
+                <tr>
+                    <th *ngIf="showSelectCheckBoxes" class="min-column"></th>
+                    <th *ngIf="html5Draggable" class="min-column"></th> 
+                    <th [attr.title]="column.text" [col-hide]="visibilityKey(column)" *ngFor="let column of visibleColumns" [ds-sort]="allowSortColumn(column)?column.fieldname:''"
+                        [datasource]="listDatasource" [style.minWidth]="column.minWidth" [style.width]="column.width" [ngClass]="column.headerClass"
+                        [ds-sort-icon-align]="'sortItemAlign'">
+                        {{column.text}}
+                    </th>
+                </tr>
+                <tr *ngIf="allowFilter">
+                    <th *ngIf="showSelectCheckBoxes" class="min-column">
+                        <ds-selection-checkbox *ngIf="allowMultiSelect" [datasource]="listDatasource"></ds-selection-checkbox>
+                    </th>
+                    <th *ngIf="html5Draggable" class="min-column"></th>
+                    <th [col-hide]="visibilityKey(column)" *ngFor="let column of visibleColumns" [ngSwitch]="column.type" [ngClass]="column.headerClass">
+                        <ng-container *ngIf="allowFilterColumn(column)">
+                            <ng-container *ngSwitchDefault>
+                                <input *ngIf="!column.lookups" class="form-control no-spinners" type="{{column.type}}" [ds-filter]="column.fieldname" [datasource]="listDatasource"  [ds-filter-operator]="getFilterOperator(column)"
+                                />
+                                <select *ngIf="column.lookups" class="form-control" [ds-filter]="column.fieldname" [ds-filter-operator]="'IsEqual'" [datasource]="listDatasource">
+                                    <option value="">(alle)</option>
+                                    <option *ngFor="let lookUp of column.lookups" value="{{lookUp.value}}">{{lookUp.text}}</option>
+                                </select>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'boolean'">
+                                <select class="form-control" [ds-filter]="column.fieldname" [ds-filter-operator]="'IsEqual'" [datasource]="listDatasource">
+                                    <option value="">(alle)</option>
+                                    <option value="true">{{column.trueValueText}}</option>
+                                    <option value="false">{{column.falseValueText}}</option>
+                                </select>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'buttons'">
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'empty'">
+                            </ng-container>
+                        </ng-container>
+                    </th>
+                </tr>
+            </thead>
+            <tbody [id]="name" [dragula]="dragulaBag" [dragulaOptions]="dragulaOptions">
+                <tr *ngFor="let listItem of listDatasource.data" class="dragula-handle" [style.height.px]="rowHeight" [attr.data-id]="listItem[idfield]"
+                    (click)="rowClick($event,listItem)" [ngClass]="{info:isSelected(listItem)}" [style.cursor]="rowCursorClass">
+                    <td *ngIf="showSelectCheckBoxes" class="min-column">
+                        <ds-selection-checkbox [ds-select]="listItem[idfield]" [allowMultiSelect]="allowMultiSelect" [datasource]="listDatasource"></ds-selection-checkbox>
+                    </td>
+                    <td *ngIf="html5Draggable" class="min-column">
+                        <i class="ui-draggable fa fa-arrows" (dragstart)="html5DragStart($event,listItem)" [draggable]="true" [title]="html5Draggable"></i>
+                    </td>
+                    <td [col-hide]="visibilityKey(column)" *ngFor="let column of visibleColumns" [ngSwitch]="column.type" [ngClass]="columnClass(column,listItem)"
+                        [style.text-align]="column.textAlign">
+                        <ng-container *ngSwitchDefault>
+                            <grid-cell-span [spans]="spansBefore(column)" [listItem]="listItem"></grid-cell-span>
+                            <span *ngIf="!column.hideFieldValue">{{displayText(listItem,column)}}</span>
+                            <grid-cell-span [spans]="spansAfter(column)" [listItem]="listItem"></grid-cell-span>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'url'">
+                            <a href="{{displayText(listItem,column)}}">
+                                <grid-cell-span [spans]="spansBefore(column)" [listItem]="listItem"></grid-cell-span>
+                                <span *ngIf="!column.hideFieldValue">{{displayText(listItem,column)}}</span>
+                                <grid-cell-span [spans]="spansAfter(column)" [listItem]="listItem"></grid-cell-span>
+                            </a>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'email'">
+                            <a href="mailto:{{displayText(listItem,column)}}">
+                                <grid-cell-span [spans]="spansBefore(column)" [listItem]="listItem"></grid-cell-span>
+                                <span *ngIf="!column.hideFieldValue">{{displayText(listItem,column)}}</span>
+                                <grid-cell-span [spans]="spansAfter(column)" [listItem]="listItem"></grid-cell-span>
+                            </a>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'tel'">
+                            <a href="tel:{{displayText(listItem,column)}}">
+                                <grid-cell-span [spans]="spansBefore(column)" [listItem]="listItem"></grid-cell-span>
+                                <span *ngIf="!column.hideFieldValue">{{displayText(listItem,column)}}</span>
+                                <grid-cell-span [spans]="spansAfter(column)" [listItem]="listItem"></grid-cell-span>
+                            </a>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'buttons'">
+                            <div *ngIf="!column.buttonsAsDropdown">
+                                <button *ngFor="let btn of column.buttons" type="button" class="btn m-r-xs {{btn.buttonClass}}" [attr.data-ident]="btn.ident"
+                                    [ngClass]="getButtonClass(listItem,btn)" [title]="btn.tooltip" (click)="buttonClicked($event,btn.ident,listItem)">
+                                    <i *ngIf="btn.iconClass" class="fa {{btn.iconClass}}"></i>
+                                    {{btn.text}}
+                                </button>
+                            </div>
+                            <div *ngIf="column.buttonsAsDropdown">
+                                <div class="btn-group" dropdown>
+                                    <a id="single-button" dropdownToggle>
+                                        <span class="clear">
+                                            <span class="text-muted text-xs block">
+                                                {{column.buttonsAsDropdown}}
+                                                <b class="caret"></b>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right" *dropdownMenu role="menu" aria-labelledby="single-button">
+                                        <li *ngFor="let btn of column.buttons" (click)="buttonClicked($event,btn.ident,listItem)">
+                                            <a class="dropdown-item {{btn.buttonClass}}" [ngClass]="getButtonClass(listItem,btn)" [title]="btn.tooltip">
+                                                <i *ngIf="btn.iconClass" class="fa {{btn.iconClass}}"></i>
+                                                {{btn.text}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'empty'">
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr *ngIf="!listDatasource.hasData && showEmptyGrid">
+                    <td [attr.colspan]="visibleColumns.length">
+                        <small>{{emptyGridText}}</small>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ds-filterdisplay [datasource]="listDatasource" [filterFieldsVisible]="filterFieldsVisible"></ds-filterdisplay>
+        <div class="" *ngIf="allowPaging">
+            <div class="no-margin no-padding">
+                <div *ngIf="gridStoreKey" class="pull-left m-r-sm dataTables_info">
+                    <a (click)="showColSelectDialog()" title="{{'SWT_GRID.SELECT_VISIBLE_COLUMNS_BTN_TOOLTIP' | translate:lang}}">
+                        <i class="fa fa-table"> </i>
+                    </a>
+                </div>
+                <ds-pagination-info [datasource]="listDatasource"></ds-pagination-info>
+            </div>
+            <div class="pull-right no-margin no-padding">
+                <ds-pagination [datasource]="listDatasource"></ds-pagination>
+            </div>
+        </div>
+    </div>
+    <div [dragula]="dragulaBag" [dragulaOptions]="dragulaOptions" class="dataTables_wrapper dt-bootstrap table-responsive" *ngIf="!listDatasource.hasData && !showEmptyGrid">
+        <small>{{emptyGridText}}</small>
+    </div>
+</loading-indicator>
+<col-select-dialog #colSelectDialog></col-select-dialog>

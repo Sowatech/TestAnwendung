@@ -1,0 +1,36 @@
+<div id="wizard" role="application" class="wizard clearfix">
+    <div class="steps clearfix">
+        <ul role="tablist" *ngFor="let step of steps">
+            <li #test [id]="'step_'+step.number" (mouseover)="test.title=''" [title]="step.title" role="tab" class="{{tabclass}}" [ngClass]="step.class">
+                <a href="javascript:void(0)" (click)="goto(step)">
+                    <span *ngIf="step.number" class="number">{{step.number}}</span> {{step.title}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content clearfix">
+        <div class="body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+    <div class="actions clearfix">
+        <ul role="menu" *ngIf="currentStep">
+            <li id="swt-wizard-previous" [ngClass]="currentStep.canLeaveToPrevious?'':'disabled'" (click)="previous()">
+                <a href="javascript:void(0)" role="menuitem">Zurück</a>
+            </li>
+            <li id="swt-wizard-next" [ngClass]="currentStep.canLeaveToNext?'':'disabled'" (click)="next()">
+                <a href="javascript:void(0)" role="menuitem">Weiter</a>
+            </li>
+            <li id="swt-wizard-finish" [ngClass]="currentStep.canFinish?'':'disabled'">
+                <a href="javascript:void(0)" role="menuitem" (click)="finish()">Abschliessen</a>
+            </li>
+            <li id="swt-wizard-cancel" [ngClass]="currentStep.canCancel?'':'disabled'" (click)="cancel()">
+                <a href="javascript:void(0)" role="menuitem">Abbrechen</a>
+            </li>
+        </ul>
+    </div>
+    <div [hidden]="true">
+        <input id="swt-wizard-step-ident" [name]="currentStep.ident">
+        <input id="swt-wizard-step-number" [name]="currentStep.number">
+    </div>
+</div>

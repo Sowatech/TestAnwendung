@@ -1,0 +1,65 @@
+﻿<nav-browser-title [browserTabTitlePrefix]="'TestAnwendung '"></nav-browser-title>
+<div id="wrapper"> 
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="nav-header">
+                    <user-info></user-info>
+                </li>
+                <nav-menu></nav-menu>
+            </ul>
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg">
+
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" (click)="toggleNavbarMinimalize()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <ul class="nav navbar-top-links navbar-left-custom">
+                        <li class="hidden-md hidden-lg hidden-xl">
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <select (change)="changeLanguage($event)" [ngModel]="lang">
+                            <option value="de">Deutsch</option>
+                            <option value="en">English</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a *ngIf="showAbmelden" (click)="abmelden()">
+                            <i class="fa fa-sign-out"></i> {{'LAYOUT_DEFAULT.LOGOUT_BTN_TEXT' | translate:lang}}
+                        </a>
+                        <a *ngIf="showAnmelden" (click)="anmelden()">
+                            <i class="fa fa-sign-in"></i> {{'LAYOUT_DEFAULT.LOGON_BTN_TEXT' | translate:lang}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2><nav-title></nav-title></h2>
+                <nav-breadcrumb></nav-breadcrumb>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content">
+            <ng-content></ng-content>
+        </div>
+        <div class="footer fixed">
+            <div class="pull-right">
+            </div>
+            <div>
+                <strong></strong>
+            </div>
+        </div>
+    </div>
+</div>

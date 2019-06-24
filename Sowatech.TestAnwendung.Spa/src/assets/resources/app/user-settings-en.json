@@ -1,0 +1,11 @@
+﻿{
+  "USER_SETTINGS": {
+    "EDIT_SETTINGS_BTN_TEXT": "edit Password",
+    "NAME_LABEL_TEXT": "Name"
+  },
+  "USER_SETTINGS_EDIT": {
+    "SETTINGS_DIALOG_HEADINGFOUR_TEXT": "Settings Dialog",
+    "CANCEL_BTN_TEXT": "cancel",
+    "SAVE_BTN_TEXT": "save"
+  }
+}

@@ -1,0 +1,37 @@
+<div style="position:relative; overflow-x:auto">
+  <loading-indicator #loadingIndicator>
+    <table class="table table-bordered table-striped table-fixed dataTable scheduler" [style.width.px]="tableWidth" [ngClass]="{'small':small,'table-condensed':small}">
+      <thead>
+        <tr *ngIf="showNameOfMonth" [style.height.px]="headerRowHeight" class="row-header-month">
+          <th *ngIf="showTimeIntervalColumn" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeIntervalColWidth"></th>
+          <th *ngFor="let monthItem of monthItems" [attr.colspan]="monthItem.numOfSlots" [ngClass]="monthItem.class" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding">{{monthItem.name}}</th>
+        </tr>
+        <tr [style.height.px]="headerRowHeight" class="row-header-text">
+          <th *ngIf="showTimeIntervalColumn" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeIntervalColWidth">{{resourceHeaderText}}</th>
+          <th *ngFor="let slot of timeLineSlots" class="text-center" [ngClass]="slot.headerCellClass()" [attr.title]="slot.headerCellTitle()+' '+slot.nameOfDay+' '+slot.headerText" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeLineSlotWidth">{{slot.headerText}}</th>
+        </tr>
+        <tr *ngIf="showNameOfDay" [style.height.px]="headerRowHeight" class="row-header-name-of-day">
+          <th *ngIf="showTimeIntervalColumn" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeIntervalColWidth"></th>
+          <th *ngFor="let slot of timeLineSlots" class="text-center" [ngClass]="slot.headerCellClass()" [attr.title]="slot.headerCellTitle()+' '+slot.nameOfDay+' '+slot.headerText" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeLineSlotWidth">{{slot.nameOfDay}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interval of timeIntervals" [style.height.px]="rowHeight" [attr.id]="'time-interval-'+interval.ident">
+          <td *ngIf="showTimeIntervalColumn" class="text-right" title="{{interval.text}}">{{interval.text}}</td>
+          <td *ngFor="let slot of timeLineSlots" (click)="onCellClick($event,interval.ident,slot)" class="text-center timeline-slot" [ngClass]="cellClass(slot,interval.ident)" [attr.title]="interval.text +' '+slot.cellTitle(interval.ident)">
+            <span class="timeline-slot-inner">{{slot.cells[interval.ident]?.text}}</span>
+            <ng-container *ngIf="scheduledItemsAsAppointments">
+              <div *ngFor="let appointment of slot.cells[interval.ident]?.appointments" (click)="onItemClick(appointment)" class="timeline-appointment badge" [ngClass]="appointment.class"  title="{{appointment.title}}">
+                {{appointment.text}}
+              </div>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--<div *ngFor="let item of items" class="timeline-item timeline-item-open-left" [style.backgroundColor]="'red'" [style.height.px]="item.height" [style.top]="item.top.px" [style.left]="item.left" [style.width.px]="item.width" (click)="onItemClick(item)">
+      <small>{{item.resourceId}} {{item.start}}</small>
+    </div>-->
+  </loading-indicator>
+</div>
+

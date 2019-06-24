@@ -1,0 +1,9 @@
+﻿{
+  "MESSAGE_BOX": {
+    "CANCEL_BTN_TEXT": "cancel",
+    "OK_BTN_TEXT": "OK",
+    "YES_BTN_TEXT": "yes",
+    "NO_BTN_TEXT": "no",
+    "CLOSE_BTN_TEXT": "close"
+  }
+}

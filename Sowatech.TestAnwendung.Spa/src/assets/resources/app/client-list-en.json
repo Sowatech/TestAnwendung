@@ -1,0 +1,8 @@
+﻿{
+  "CLIENT_LSITE": {
+    "NEW_CLIENT_BTN_TEXT": "new Client",
+    "NAME_THEAD_TEXT": "Name",
+    "DELETE_BTN_TEXT": "Delete",
+    "EDIT_BTN_TEXT": "Edit"
+  }
+}

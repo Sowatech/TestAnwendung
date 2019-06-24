@@ -1,0 +1,18 @@
+﻿<div class="ibox" [ngClass]="collapsed ? '':'border-bottom'">
+    <div class="ibox-title" [hidden]="headingHidden">
+        <h5>
+            <span (click)="toggleCollapse($event)">{{heading}}</span>
+            <ng-content select="[ibox-heading]"></ng-content>
+        </h5>
+        <div class="ibox-tools">
+            <ng-content select="[ibox-tools]"></ng-content>
+            <a class="collapse-link" [hidden]="!collapsable" (click)="toggleCollapse($event)">
+                <i class="fa" [ngClass]="collapsed? 'fa-chevron-down':'fa-chevron-up'"></i>
+            </a>
+            <span *ngIf="label" class="label label-primary">{{label}}</span>
+        </div>
+    </div>
+    <div class="ibox-content" [hidden]="collapsed">
+        <ng-content></ng-content>
+    </div>
+</div>

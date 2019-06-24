@@ -1,0 +1,6 @@
+<form #dialogForm (change)="fileUpload($event)" action="#" style="position:relative" class="dropzone" id="dropzoneForm" >
+  <div class="text-center uploadText">
+    <ng-content></ng-content>
+  </div>
+  <input [style.min-height]="height" class="fileinput" name="file" type="file" [attr.multiple]="multiple" accept="{{accept}}" />
+</form> 

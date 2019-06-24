@@ -1,0 +1,17 @@
+﻿<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <ibox [heading]="'Mandanten'" [collapsable]="false">
+                <div ibox-tools>
+                    <button class="btn btn-primary btn-xs" (click)="createItem()" title="{{'CLIENT_LSITE.NEW_CLIENT_BTN_TEXT' | translate:lang}}">
+                        <i class="fa fa-plus"></i> <i class='fa fa-institution'></i> {{'CLIENT_LSITE.NEW_CLIENT_BTN_TEXT' | translate:lang}}
+                    </button>
+                </div>
+                <ds-datasource #clientDatasource [src]="clients" [store-key]="'client-list'"></ds-datasource>
+                <swt-grid #clientGrid [datasource]="clientDatasource" [store-key]="'client-list'"></swt-grid>
+            </ibox>
+        </div>
+    </div>
+</div>
+
+

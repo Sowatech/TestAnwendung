@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{A3819570-D06D-4FAB-82C6-E579F13CE219}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44378</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\app.component.css" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\auth\login.component.html" />
+    <Content Include="src\app\client-administration\client-detail\client-detail.component.html" />
+    <Content Include="src\app\client-administration\client-list\client-list.component.html" />
+    <Content Include="src\app\client-administration\client-users\client-users.component.html" />
+    <Content Include="src\app\client-profile\client-settings\client-settings.component.html" />
+    <Content Include="src\app\layouts\layout-default.component.html" />
+    <Content Include="src\app\nav\nav-breadcrumb.component.html" />
+    <Content Include="src\app\nav\nav-menu.component.html" />
+    <Content Include="src\app\shared\browser-support\browser-support-info.component.html" />
+    <Content Include="src\app\shared\dialogs\message-box\message-box.component.html" />
+    <Content Include="src\app\shared\file-upload\file-upload.component.html" />
+    <Content Include="src\app\shared\lightbox\lightbox.component.css" />
+    <Content Include="src\app\shared\lightbox\lightbox.component.html" />
+    <Content Include="src\app\shared\scheduler\date-selectors\scheduler-month-selector.component.html" />
+    <Content Include="src\app\shared\scheduler\date-selectors\scheduler-week-selector.component.html" />
+    <Content Include="src\app\shared\scheduler\scheduler-calendar.component.html" />
+    <Content Include="src\app\shared\scheduler\scheduler-timeline.component.html" />
+    <Content Include="src\app\shared\swt-controls\swt-date-interval\swt-date-interval.component.html" />
+    <Content Include="src\app\shared\swt-controls\swt-date-picker.component.html" />
+    <Content Include="src\app\shared\swt-controls\swt-ibox.component.html" />
+    <Content Include="src\app\shared\swt-controls\swt-wizard\swt-wizard.component.html" />
+    <Content Include="src\app\shared\swt-generic\col\col-select-dialog.component.html" />
+    <Content Include="src\app\shared\swt-generic\swt-generic-edit-dialog\swt-generic-edit-dialog-form.component.html" />
+    <Content Include="src\app\shared\swt-generic\swt-generic-edit-dialog\swt-generic-edit-dialog.component.html" />
+    <Content Include="src\app\shared\swt-generic\swt-grid\swt-grid.component.html" />
+    <Content Include="src\app\shared\swt-generic\swt-list-editor\swt-list-editor.component.html" />
+    <Content Include="src\app\system-administration\system-settings\system-settings.component.html" />
+    <Content Include="src\app\user-administration\user-administration.component.html" />
+    <Content Include="src\app\user-group\user-group.component.html" />
+    <Content Include="src\app\user-profile\user-info\user-info.component.html" />
+    <Content Include="src\app\user-profile\user-reset-password\user-reset-password.component.html" />
+    <Content Include="src\app\user-profile\user-settings\user-settings-edit.component.html" />
+    <Content Include="src\app\user-profile\user-settings\user-settings.component.html" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\theme\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap-sprockets.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap.min.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\affix.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\alert.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\button.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\carousel.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\collapse.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\dropdown.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\modal.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\popover.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\scrollspy.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\tab.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\tooltip.js" />
+    <Content Include="src\theme\bootstrap\javascripts\bootstrap\transition.js" />
+    <Content Include="src\theme\inspinia\style.css" />
+    <Content Include="src\tsconfig.app.json" />
+    <Content Include="src\tsconfig.spec.json" />
+    <Content Include="tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\app.routes.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth.module.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth.routing.ts" />
+    <TypeScriptCompile Include="src\app\auth\auth.service.ts" />
+    <TypeScriptCompile Include="src\app\auth\login.component.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-crud.service.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-detail\client-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-detail\client-detail.model.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-list\client-list.component.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-list\client-list.model.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-users\client-users-crud.service.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-users\client-users.component.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-users\client-users.dtos.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-users\client-users.model.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client.dtos.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client.module.ts" />
+    <TypeScriptCompile Include="src\app\client-administration\client.routing.ts" />
+    <TypeScriptCompile Include="src\app\client-profile\client-profile-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\client-profile\client-profile.module.ts" />
+    <TypeScriptCompile Include="src\app\client-profile\client-profile.routing.ts" />
+    <TypeScriptCompile Include="src\app\client-profile\client-settings\client-settings.component.ts" />
+    <TypeScriptCompile Include="src\app\client-profile\client-settings\client-settings.dtos.ts" />
+    <TypeScriptCompile Include="src\app\client-profile\client-settings\client-settings.model.ts" />
+    <TypeScriptCompile Include="src\app\core.module.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\client\dialog-client-add.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\client\dialog-client.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\system\dialog-smtp.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\user\dialog-user-add.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\user\dialog-user-change-password.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\user\dialog-user-profile-update.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\user\dialog-user-set-password.service.ts" />
+    <TypeScriptCompile Include="src\app\global\dialogs\user\dialog-user-update.service.ts" />
+    <TypeScriptCompile Include="src\app\global\error-handler.service.ts" />
+    <TypeScriptCompile Include="src\app\global\global.module.ts" />
+    <TypeScriptCompile Include="src\app\global\index.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\home\home.module.ts" />
+    <TypeScriptCompile Include="src\app\home\home.routing.ts" />
+    <TypeScriptCompile Include="src\app\home\home.service.ts" />
+    <TypeScriptCompile Include="src\app\layouts\layout-default.component.ts" />
+    <TypeScriptCompile Include="src\app\layouts\layouts.module.ts" />
+    <TypeScriptCompile Include="src\app\main.ts" />
+    <TypeScriptCompile Include="src\app\master-data\master-data-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\master-data\master-data.component.ts" />
+    <TypeScriptCompile Include="src\app\master-data\master-data.module.ts" />
+    <TypeScriptCompile Include="src\app\master-data\master-data.routing.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav-breadcrumb.component.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav-data.service.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav-menu.component.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav-title.component.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav.model.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav.module.ts" />
+    <TypeScriptCompile Include="src\app\nav\nav.service.ts" />
+    <TypeScriptCompile Include="src\app\session.dtos.ts" />
+    <TypeScriptCompile Include="src\app\shared-custom\shared-custom.module.ts" />
+    <TypeScriptCompile Include="src\app\shared-custom\toolbar-container.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\browser-support\browser-support-info.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\browser-support\browser-support.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\browser-support\browser-support.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\browser-support\hidden-for-browser.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\browser-support\visible-for-browser.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\chartjs\chartjs.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\chartjs\chartjs.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\chartjs\chartjs.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\dialogs\backdrop.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\dialogs\dialog-init.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\dialogs\dialogs.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\dialogs\file-dialog.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\dialogs\message-box\message-box.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\dialogs\message-box\message-box.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-datasource.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-datasource.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-dtos.model.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-filter-group.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-filter-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-filter.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-filterdisplay.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-group-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-pagination-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-pagination-info.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-pagination.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-refreshparams-store.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-selection-checkbox.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-selection-list-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-sort-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\ds-sort.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\ds-datasource\index.ts" />
+    <TypeScriptCompile Include="src\app\shared\file-upload\file-upload.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\file-upload\file-upload.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\index.ts" />
+    <TypeScriptCompile Include="src\app\shared\lightbox\index.ts" />
+    <TypeScriptCompile Include="src\app\shared\lightbox\lightbox.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\lightbox\lightbox.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\date-selectors\scheduler-month-selector.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\date-selectors\scheduler-week-selector.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\index.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\scheduler-base.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\scheduler-calendar.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\scheduler-shared.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\scheduler-timeline.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\scheduler.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\types\dest-row.type.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\types\scheduled-items-date-format.type.ts" />
+    <TypeScriptCompile Include="src\app\shared\scheduler\types\scheduler-variant.type.ts" />
+    <TypeScriptCompile Include="src\app\shared\shared.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\debounce.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\index.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-checkbox-wrapper.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-checkbox.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-controls.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-controls.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-date-interval\swt-date-interval-store.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-date-interval\swt-date-interval.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-date-interval\swt-date-interval.model.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-date-picker.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-dropdown-container.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-ibox.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-language-selector.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-loading-indicator.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-popover.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-rating-icons.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-wizard\swt-wizard-step.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\swt-wizard\swt-wizard.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\visible-for-role.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-controls\visible-for-role.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-dragula\swt-dragula.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-dragula\swt-dragula.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-dragula\swt-dragula.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\col\col-hide.directive.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\col\col-select-dialog.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\col\col-visibility.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\index.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-generic-edit-dialog\swt-generic-edit-dialog-form.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-generic-edit-dialog\swt-generic-edit-dialog.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-generic-edit-dialog\swt-generic-edit-dialog.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-generic-edit-dialog\swt-generic-edit-dialog.types.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-generic.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-grid\swt-grid.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-list-editor\swt-list-editor-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\swt-generic\swt-list-editor\swt-list-editor.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\csv.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\exifjs.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\file.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\image-transform.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\jszip.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\logger.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\reihenfolge-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\session.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\shared.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\stateMachine.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\utilities.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\utilities\zip.service.ts" />
+    <TypeScriptCompile Include="src\app\system-administration\system-administration-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\system-administration\system-administration.module.ts" />
+    <TypeScriptCompile Include="src\app\system-administration\system-adminstration.routing.ts" />
+    <TypeScriptCompile Include="src\app\system-administration\system-settings\system-settings.component.ts" />
+    <TypeScriptCompile Include="src\app\system-administration\system-settings\system-settings.dtos.ts" />
+    <TypeScriptCompile Include="src\app\system-administration\system-settings\system-settings.model.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user-administration.component.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user-crud.service.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user.dtos.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user.model.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user.module.ts" />
+    <TypeScriptCompile Include="src\app\user-administration\user.routing.ts" />
+    <TypeScriptCompile Include="src\app\user-group\dialogs\dialog-user-group.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group-crud.service.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group.component.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group.dtos.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group.models.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group.module.ts" />
+    <TypeScriptCompile Include="src\app\user-group\user-group.routing.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-info\user-info.component.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-profile-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-profile.dtos.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-profile.module.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-profile.routing.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-reset-password\user-reset-password-web-api.service.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-reset-password\user-reset-password.component.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-settings\user-settings-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-settings\user-settings.component.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-settings\user-settings.dtos.ts" />
+    <TypeScriptCompile Include="src\app\user-profile\user-settings\user-settings.model.ts" />
+    <TypeScriptCompile Include="src\app\web-api\http-request-builder-with-tan.ts" />
+    <TypeScriptCompile Include="src\app\web-api\http-request-builder-with-token.ts" />
+    <TypeScriptCompile Include="src\app\web-api\http-request-builder.ts" />
+    <TypeScriptCompile Include="src\app\web-api\web-api-settings.service.ts" />
+    <TypeScriptCompile Include="src\app\web-api\web-api-with-tan.service.ts" />
+    <TypeScriptCompile Include="src\app\web-api\web-api-with-token.service.ts" />
+    <TypeScriptCompile Include="src\app\web-api\web-api-without-auth.service.ts" />
+    <TypeScriptCompile Include="src\app\web-api\web-api.module.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+    <TypeScriptCompile Include="src\typings.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app\app.component.sass" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <Content Include="src\assets\nav-data.static.json" />
+    <Content Include="src\assets\resources\app\client-list-de.json" />
+    <Content Include="src\assets\resources\app\client-list-en.json" />
+    <Content Include="src\assets\resources\app\client-settings-de.json" />
+    <Content Include="src\assets\resources\app\client-settings-en.json" />
+    <Content Include="src\assets\resources\app\home-de.json" />
+    <Content Include="src\assets\resources\app\home-en.json" />
+    <Content Include="src\assets\resources\app\layout-default-de.json" />
+    <Content Include="src\assets\resources\app\layout-default-en.json" />
+    <Content Include="src\assets\resources\app\login-de.json" />
+    <Content Include="src\assets\resources\app\login-en.json" />
+    <Content Include="src\assets\resources\app\nav-data-de.json" />
+    <Content Include="src\assets\resources\app\nav-data-en.json" />
+    <Content Include="src\assets\resources\app\system-settings-de.json" />
+    <Content Include="src\assets\resources\app\system-settings-en.json" />
+    <Content Include="src\assets\resources\app\user-administration-de.json" />
+    <Content Include="src\assets\resources\app\user-administration-en.json" />
+    <Content Include="src\assets\resources\app\user-info-de.json" />
+    <Content Include="src\assets\resources\app\user-info-en.json" />
+    <Content Include="src\assets\resources\app\user-reset-password-de.json" />
+    <Content Include="src\assets\resources\app\user-reset-password-en.json" />
+    <Content Include="src\assets\resources\app\user-settings-de.json" />
+    <Content Include="src\assets\resources\app\user-settings-en.json" />
+    <Content Include="src\assets\resources\shared\col-select-dialog-de.json" />
+    <Content Include="src\assets\resources\shared\col-select-dialog-en.json" />
+    <Content Include="src\assets\resources\shared\col-select-dialog-fr.json" />
+    <Content Include="src\assets\resources\shared\lightbox-de.json" />
+    <Content Include="src\assets\resources\shared\lightbox-en.json" />
+    <Content Include="src\assets\resources\shared\lightbox-fr.json" />
+    <Content Include="src\assets\resources\shared\message-box-de.json" />
+    <Content Include="src\assets\resources\shared\message-box-en.json" />
+    <Content Include="src\assets\resources\shared\message-box-fr.json" />
+    <Content Include="src\assets\resources\shared\swt-controls-de.json" />
+    <Content Include="src\assets\resources\shared\swt-controls-en.json" />
+    <Content Include="src\assets\resources\shared\swt-date-picker-de.json" />
+    <Content Include="src\assets\resources\shared\swt-date-picker-en.json" />
+    <Content Include="src\assets\resources\shared\swt-date-picker-fr.json" />
+    <Content Include="src\assets\resources\shared\swt-generic-edit-dialog-de.json" />
+    <Content Include="src\assets\resources\shared\swt-generic-edit-dialog-en.json" />
+    <Content Include="src\assets\resources\shared\swt-generic-edit-dialog-fr.json" />
+    <Content Include="src\assets\resources\shared\swt-grid-de.json" />
+    <Content Include="src\assets\resources\shared\swt-grid-en.json" />
+    <Content Include="src\assets\resources\shared\swt-grid-fr.json" />
+    <Content Include="src\assets\resources\shared\swt-list-editor-de.json" />
+    <Content Include="src\assets\resources\shared\swt-list-editor-en.json" />
+    <Content Include="src\assets\resources\shared\swt-list-editor-fr.json" />
+    <Content Include="src\app\shared\file-upload\file-upload.component.scss" />
+    <Content Include="src\theme\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="src\theme\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\theme\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="src\theme\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="src\theme\bootstrap\images\.keep" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_alerts.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_buttons.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_center-block.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_forms.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_grid.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_image.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_labels.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_list-group.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_opacity.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_pagination.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_panels.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_resize.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_size.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_table-row.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_alerts.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_badges.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_breadcrumbs.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_button-groups.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_buttons.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_carousel.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_close.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_code.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_component-animations.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_dropdowns.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_forms.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_glyphicons.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_grid.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_input-groups.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_jumbotron.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_labels.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_list-group.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_media.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_mixins.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_modals.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_navbar.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_navs.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_normalize.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_pager.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_pagination.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_panels.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_popovers.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_print.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_progress-bars.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_responsive-embed.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_responsive-utilities.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_scaffolding.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_tables.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_theme.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_thumbnails.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_tooltip.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_type.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_utilities.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_variables.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\bootstrap\_wells.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\_bootstrap-compass.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\_bootstrap-mincer.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="src\theme\bootstrap\stylesheets\_bootstrap.scss" />
+    <Content Include="src\theme\custom-font.scss" />
+    <Content Include="src\theme\custom-variables.scss" />
+    <Content Include="src\theme\datatables.scss" />
+    <Content Include="src\theme\dragula.scss" />
+    <Content Include="src\theme\fonts\OpenSans-Bold.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-BoldItalic.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-ExtraBold.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-Italic.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-Light.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-LightItalic.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-Regular.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-Semibold.ttf" />
+    <Content Include="src\theme\fonts\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="src\theme\inspinia\style.css.map" />
+    <Content Include="src\theme\inspinia\style.scss" />
+    <Content Include="src\theme\inspinia\_badges_labels.scss" />
+    <Content Include="src\theme\inspinia\_base.scss" />
+    <Content Include="src\theme\inspinia\_buttons.scss" />
+    <Content Include="src\theme\inspinia\_chat.scss" />
+    <Content Include="src\theme\inspinia\_custom.scss" />
+    <Content Include="src\theme\inspinia\_elements.scss" />
+    <Content Include="src\theme\inspinia\_landing.scss" />
+    <Content Include="src\theme\inspinia\_md-skin.scss" />
+    <Content Include="src\theme\inspinia\_media.scss" />
+    <Content Include="src\theme\inspinia\_metismenu.scss" />
+    <Content Include="src\theme\inspinia\_mixins.scss" />
+    <Content Include="src\theme\inspinia\_navigation.scss" />
+    <Content Include="src\theme\inspinia\_pages.scss" />
+    <Content Include="src\theme\inspinia\_rtl.scss" />
+    <Content Include="src\theme\inspinia\_sidebar.scss" />
+    <Content Include="src\theme\inspinia\_skins.scss" />
+    <Content Include="src\theme\inspinia\_spinners.scss" />
+    <Content Include="src\theme\inspinia\_theme-config.scss" />
+    <Content Include="src\theme\inspinia\_top_navigation.scss" />
+    <Content Include="src\theme\inspinia\_typography.scss" />
+    <Content Include="src\theme\inspinia\_variables.scss" />
+    <Content Include="src\theme\steps.scss" />
+    <Content Include="src\theme\styles.scss" />
+    <Content Include="src\app\shared\swt-generic\swt-grid\swt-grid.component.scss" />
+    <Content Include="src\app\shared\scheduler\scheduler.scss" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>TypeScriptHTMLApp1</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54921</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54921/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

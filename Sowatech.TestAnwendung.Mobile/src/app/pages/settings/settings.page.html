@@ -1,0 +1,47 @@
+﻿<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Settings</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <form #f="ngForm">
+        <ion-list>
+
+            <ion-list-header color="light">
+                Bild-Einstellungen
+            </ion-list-header>
+            <ion-item>
+                <ion-label fixed>Größe</ion-label>
+                <ion-select name="imageSize" [(ngModel)]="model.imageSettings.size">
+                    <ion-option value="450">450</ion-option>
+                    <ion-option value="600">600</ion-option>
+                    <ion-option value="original">original</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>direkt hochladen?</ion-label>
+                <ion-checkbox name="imageUploadDirectly" [(ngModel)]="model.imageSettings.uploadDirectly"></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>lokal speichern?</ion-label>
+                <ion-checkbox name="imageSaveOnDevice" [(ngModel)]="model.imageSettings.saveOnDevice"></ion-checkbox>
+            </ion-item>
+
+            <ion-item hidden>fix item for border-issue</ion-item>
+        </ion-list>
+    </form>
+
+    <ion-footer>
+        <ion-toolbar>
+            <button block ion-button (click)="submitted=true; save(f.valid)">Speichern</button>
+        </ion-toolbar>
+    </ion-footer>
+
+</ion-content>

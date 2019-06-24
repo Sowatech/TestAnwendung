@@ -1,0 +1,41 @@
+<div bsModal #dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header" [hidden]="!title">
+                <button id="btn-close-dialog"  type="button" class="close" (click)="closeDialog()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body" [innerHTML]="text">
+            </div>
+            <div class="modal-footer">
+                <span [hidden]="!btnVisible(btnCancel)">
+                    <button id="btn-cancel" #btnCancel value="CANCEL" type="button" class="btn btn-default" (click)="btnClicked(btnCancel)">
+                        {{'MESSAGE_BOX.CANCEL_BTN_TEXT' | translate:lang}}
+                    </button>
+                </span>
+                <span [hidden]="!btnVisible(btnOk)">
+                    <button id="btn-ok" #btnOk value="OK" type="button" class="btn btn-primary" (click)="btnClicked(btnOk)">
+                        {{'MESSAGE_BOX.OK_BTN_TEXT' | translate:lang}}
+                    </button>
+                </span>
+                <span [hidden]="!btnVisible(btnYes)">
+                    <button id="btn-yes" #btnYes value="YES" type="button" class="btn btn-success" (click)="btnClicked(btnYes)">
+                        {{'MESSAGE_BOX.YES_BTN_TEXT' | translate:lang}}
+                    </button>
+                </span>
+                <span [hidden]="!btnVisible(btnNo)">
+                    <button id="btn-no" #btnNo value="NO" [hidden]="!btnVisible(btnNo)" type="button" class="btn btn-danger" (click)="btnClicked(btnNo)">
+                        {{'MESSAGE_BOX.NO_BTN_TEXT' | translate:lang}}
+                    </button>
+                </span>
+                <span [hidden]="!btnVisible(btnClose)">
+                    <button id="btn-close" #btnClose value="CLOSE" [hidden]="!btnVisible(btnClose)" type="button" class="btn btn-default" (click)="btnClicked(btnClose)">
+                        {{'MESSAGE_BOX.CLOSE_BTN_TEXT' | translate:lang}}
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+﻿<div class="browser_support-logos">
+    <div *ngFor="let browser of browsers" class="browser-image img svg">
+        <div class="link-image" [ngClass]=browser.class></div>
+        <small>{{browser.name}}<br /><span *ngIf="browser.version">{{browser.version}}+</span>&nbsp;</small>
+    </div>
+</div>
+

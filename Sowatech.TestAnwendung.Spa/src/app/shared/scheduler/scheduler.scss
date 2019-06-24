@@ -1,0 +1,78 @@
+
+table.table-fixed {
+  table-layout: fixed;
+}
+
+table.table-fixed td, table.table-fixed th {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+table.scheduler.table-fixed thead tr th {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: default;
+}
+
+table.scheduler td.day-of-week-0:not(.custom-cell),
+table.scheduler td.day-of-week-6:not(.custom-cell) {
+  background-color: gainsboro;
+}
+
+table.scheduler td,
+table.scheduler td span {
+  cursor: default;
+}
+
+table.scheduler .ui-clickable,
+.timeline-item.ui-clickable,
+.timeline-appointment.ui-clickable {
+  cursor: pointer;
+}
+
+.timeline-item.ui-draggable.active,
+.timeline-item.ui-draggable:not(.ui-clickable),
+.timeline-appointment.ui-draggable.active,
+.timeline-appointment.ui-draggable:not(.ui-clickable) {
+  cursor: grab;
+}
+
+
+.timeline-item {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.timeline-item-open {
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.timeline-item-open-left {
+  border-radius: 200px 0px 0px 200px;
+  -moz-border-radius: 200px 0px 0px 200px;
+  -webkit-border-radius: 200px 0px 0px 200px;
+}
+
+.timeline-item-open-right {
+  border-radius: 0px 200px 200px 0px;
+  -moz-border-radius: 0px 200px 200px 0px;
+  -webkit-border-radius: 0px 200px 200px 0px;
+}
+
+
+.timeline-appointment.badge {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.timeline-item.active {
+  border: dashed 1px #ffffff;
+}
+
+/*table.timeline .bg-danger {
+  background-color: darkred;
+}*/

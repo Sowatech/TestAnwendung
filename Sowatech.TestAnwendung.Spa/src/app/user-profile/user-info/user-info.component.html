@@ -1,0 +1,18 @@
+﻿<div class="nav-header profile-element" *ngIf="userName">
+    <div class="btn-group" dropdown>
+        <a id="single-button" dropdownToggle>
+            <span class="clear">
+                <span class="block m-t-xs">
+                    <strong id="span_displayName" class="font-bold">{{displayName}}</strong>
+                </span>
+                <span id="displayName" class="text-muted text-xs block">
+                    {{userName}}<b class="caret"></b>
+                </span>
+            </span>
+        </a>
+        <ul class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="single-button">
+            <li role="menuitem" (click)="editProfile()"><a class="dropdown-item">{{'USER_INFO.UPDATE_USER_ACTION_TEXT' | translate:lang}}</a></li>
+            <li role="menuitem" (click)="editPassword()"><a class="dropdown-item">{{'USER_INFO.CHANGE_PASSWORD_ACTION_TEXT' | translate:lang}}</a></li>
+        </ul>
+    </div>
+</div>

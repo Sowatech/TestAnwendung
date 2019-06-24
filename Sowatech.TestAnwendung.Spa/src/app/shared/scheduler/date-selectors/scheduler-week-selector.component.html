@@ -1,0 +1,26 @@
+<label *ngIf="showYear">{{selectedMonth.year}}</label>
+<div class="row">
+  <div class="col-xs-12 col-sm-1">
+    <div class="month-padding">
+      <button (click)="decreaseMonth()" class="btn btn-sm btn-primary btn-outline btn-block" title="">
+        <i class="fa fa-arrow-left"></i> <span class="hidden-sm hidden-md"></span>
+      </button>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-10">
+    <div class="row">
+      <div *ngFor="let week of weeks" class="col-md-2 month-padding" [ngClass]="weeks.length>4?'col-md-2':'col-md-3'">
+        <button [attr.title]="week.isoWeek" style="overflow:hidden;" class="btn btn-sm btn-block btn-primary" [ngClass]="week.isoWeek==selectedWeek.isoWeek?'':'btn-outline'" (click)="selectWeek(week.isoWeek)" title="KW {{week.isoWeek}}">
+          <span>KW {{week.isoWeek}}</span> <span class="hidden-md">({{week.date|date:"shortDate"}})</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-1">
+    <div class="month-padding">
+      <button (click)="increaseMonth()" class="pull-right btn btn-sm btn-primary btn-outline btn-block" title="">
+        <i class="fa fa-arrow-right"></i> <span class="hidden-sm hidden-md"></span>
+      </button>
+    </div>
+  </div>
+</div>

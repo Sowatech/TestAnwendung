@@ -1,0 +1,34 @@
+
+table.dataTable thead .iconleft:after {
+  left: 8px;
+}
+
+table.dataTable thead tr th.iconleft {
+  padding-left: 30px;
+}
+
+table.dataTable.table-condensed .iconleft:after {
+  left: 6px;
+}
+
+table.dataTable.table-condensed thead tr th.iconleft {
+  padding-left: 30px;
+}
+
+table.table-fixed { 
+	table-layout: fixed; 
+}
+
+table.table-fixed td, table.table-fixed th { 
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+table.dataTable td.min-column,
+table.dataTable th.min-column {
+  width: 12px !important;
+  padding-left: 4px;
+  padding-right: 2px;
+  margin: 0;
+}

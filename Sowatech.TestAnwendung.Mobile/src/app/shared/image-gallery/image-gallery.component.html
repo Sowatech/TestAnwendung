@@ -1,0 +1,37 @@
+﻿<div>
+    <div *ngIf="isMobile">
+        <ion-fab right top>
+            <button ion-fab color="default"><ion-icon name="images"></ion-icon></button>
+            <ion-fab-list side="left">
+                <button ion-fab (click)="mobileGetPictureFromCamera()">
+                    <ion-icon name="camera"></ion-icon>
+                </button>
+                <button ion-fab (click)="mobileGetPictureFromLibrary()">
+                    <ion-icon name="folder-open"></ion-icon>
+                </button>
+            </ion-fab-list>
+        </ion-fab>
+    </div>
+
+    <div *ngIf="!isMobile">
+        <ion-fab right top>
+            <button ion-fab color="default"><ion-icon name="images"></ion-icon></button>
+            <ion-fab-list side="left">
+                <button ion-fab (click)="fileDialog.show()">
+                    <ion-icon name="folder-open"></ion-icon>
+                </button>
+            </ion-fab-list>
+        </ion-fab>
+        <file-dialog [extensions]="'.jpg,.png'" #fileDialog (onOk)="onDesktopOk($event);"></file-dialog>
+    </div>
+
+    <ion-grid [hidden]="images.length == 0">
+        <ion-row responsive-xs wrap>
+            <ion-col width-33 *ngFor="let image of images">
+                <ion-card (click)="showImageActions(image.id)">
+                    <img [src]="'data:image/jpeg;base64,'+image.base64">
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>

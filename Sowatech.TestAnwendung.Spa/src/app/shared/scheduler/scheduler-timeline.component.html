@@ -1,0 +1,34 @@
+<div style="position:relative; overflow-x:auto" (dragover)="onItemDragOver($event)" (drop)="onItemDrop($event)">
+  <table class="table table-bordered table-striped table-fixed dataTable scheduler" [style.width.px]="tableWidth" [ngClass]="{'small':small,'table-condensed':small}">
+    <thead>
+      <tr *ngIf="showNameOfMonth" [style.height.px]="headerRowHeight" class="row-header-month">
+        <th *ngIf="showResourceColumn" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="resourceColWidth"></th>
+        <th *ngFor="let monthItem of monthItems" [attr.colspan]="monthItem.numOfSlots" [ngClass]="monthItem.class" [style.paddingLeft.px]="cellPadding"
+            [style.paddingRight.px]="cellPadding">{{monthItem.name}}</th>
+      </tr>
+      <tr [style.height.px]="headerRowHeight" class="row-header-text">
+        <th *ngIf="showResourceColumn" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="resourceColWidth">{{resourceHeaderText}}</th>
+        <th *ngFor="let slot of timeLineSlots" class="text-center" [ngClass]="slot.headerCellClass()" [attr.title]="slot.headerCellTitle()+' '+slot.nameOfDay+' '+slot.headerText"
+            [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeLineSlotWidth">{{slot.headerText}}</th>
+      </tr>
+      <tr *ngIf="showNameOfDay" [style.height.px]="headerRowHeight" class="row-header-name-of-day">
+        <th *ngIf="showResourceColumn" [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="resourceColWidth"></th>
+        <th *ngFor="let slot of timeLineSlots" class="text-center" [ngClass]="slot.headerCellClass()" [attr.title]="slot.headerCellTitle()+' '+slot.nameOfDay+' '+slot.headerText"
+            [style.paddingLeft.px]="cellPadding" [style.paddingRight.px]="cellPadding" [style.width.px]="timeLineSlotWidth">{{slot.nameOfDay}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let resource of resourceDatasource.data" [style.height.px]="rowHeight" [attr.id]="'timeline-resource-'+resource[resourceIdField]" [attr.data-line-id]="resource[resourceIdField]">
+        <td *ngIf="showResourceColumn" title="{{resource[resourceNameField]}}">{{resource[resourceNameField]}}</td>
+        <td *ngFor="let slot of timeLineSlots;let slotIndex = index" (click)="onCellClick($event,resource[resourceIdField],slot)" [attr.data-slot-index]="slotIndex" class="text-center timeline-slot"
+            [ngClass]="cellClass(slot,resource[resourceIdField])" [attr.title]="resource[resourceNameField] +' '+slot.cellTitle(resource[resourceIdField])">
+          <span class="timeline-slot-inner">{{slot.cells[resource[resourceIdField]]?.text}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div [draggable]="allowDragItems" (dragstart)="onItemDragStart($event,item)" *ngFor="let item of items" class="timeline-item" [ngClass]="item.class" [attr.title]="item.title" [style.height.px]="item.height"
+       [style.top.px]="item.top" [style.left.px]="item.left" [style.width.px]="item.width" (click)="onItemClick(item)">
+    <small>{{item.text}}</small>
+  </div>
+</div>

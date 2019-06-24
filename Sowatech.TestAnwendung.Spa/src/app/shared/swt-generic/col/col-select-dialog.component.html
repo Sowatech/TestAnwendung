@@ -1,0 +1,24 @@
+﻿<div bsModal #dialog="bs-modal" class="modal fade" tabindex="-1" role="dialog" [dialog-init]="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="cancelDialog()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{dialogTitle}}</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="form-group" *ngFor="let field of dialogFields">
+                    <label class="control-label col-sm-4">{{field.text}}</label>
+                    <div class="col-sm-8 form-control-static">
+                        <swt-checkbox [(ngModel)]="editItem[field.fieldname]"></swt-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="cancelDialog()">{{'SWT_GENERIC_EDIT_DIALOG.CANCEL_BTN_TEXT' | translate:lang}}</button>
+                <button type="button" class="btn btn-primary" (click)="submitDialog()">{{'SWT_GENERIC_EDIT_DIALOG.OK_BTN_TEXT' | translate:lang}}</button>
+            </div>
+        </div>
+    </div>
+</div>
