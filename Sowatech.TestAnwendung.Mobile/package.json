@@ -56,7 +56,7 @@
     "ionicons": "3.0.0",
     "jsbarcode": "^3.9.0",
     "minimist": "^1.2.0",
-    "moment": "2.18.1",
+    "moment": "2.29.4",
     "phonegap-nfc": "^0.7.1",
     "pouchdb": "^7.0.0",
     "pouchdb-adapter-cordova-sqlite": "^2.0.3",
